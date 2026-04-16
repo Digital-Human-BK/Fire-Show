@@ -1,0 +1,172 @@
+// ============================================================
+// KINETIC DARK SYSTEM — Design Tokens
+// Pure SCSS variables — no CSS custom properties.
+// Every SCSS file that needs these values must @use this file.
+// ============================================================
+
+// ----------------------------------------------------------
+// Breakpoints
+// ----------------------------------------------------------
+$bp-xs: 480px;
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1440px;
+
+// ----------------------------------------------------------
+// Colors — Base Layers
+// ----------------------------------------------------------
+$color-bg-base: #121212;
+$color-bg-elevated: #1c1c1c;
+$color-bg-surface: #242424;
+$color-bg-overlay: #2e2e2e;
+
+// ----------------------------------------------------------
+// Colors — Accents
+// ----------------------------------------------------------
+$color-accent: #ff4d00;
+$color-accent-hover: #ff6a2b;
+$color-accent-muted: rgba(255, 77, 0, 0.12);
+$color-accent-border: rgba(255, 77, 0, 0.4);
+
+$color-secondary: #ffb300;
+$color-secondary-muted: rgba(255, 179, 0, 0.12);
+$color-secondary-border: rgba(255, 179, 0, 0.3);
+
+$color-danger: #d32f2f;
+$color-danger-dark: #b71c1c;
+$color-danger-muted: rgba(211, 47, 47, 0.12);
+$color-danger-border: rgba(211, 47, 47, 0.3);
+
+// ----------------------------------------------------------
+// Colors — Text
+// ----------------------------------------------------------
+$color-text-primary: #f5f5f5;
+$color-text-secondary: #a3a3a3;
+$color-text-muted: #6b6b6b;
+
+// ----------------------------------------------------------
+// Colors — Borders
+// ----------------------------------------------------------
+$color-border: rgba(255, 255, 255, 0.08);
+$color-border-subtle: rgba(255, 255, 255, 0.04);
+$color-border-strong: rgba(255, 255, 255, 0.16);
+
+// ----------------------------------------------------------
+// Typography — Families
+// ----------------------------------------------------------
+$font-heading: "Space Grotesk Variable", system-ui, sans-serif;
+$font-body: "Manrope Variable", system-ui, sans-serif;
+$font-mono: ui-monospace, Consolas, "Courier New", monospace;
+
+// ----------------------------------------------------------
+// Typography — Scale
+// ----------------------------------------------------------
+$text-xs: 0.75rem;
+$text-sm: 0.875rem;
+$text-base: 1rem;
+$text-lg: 1.125rem;
+$text-xl: 1.25rem;
+$text-2xl: 1.5rem;
+$text-3xl: 1.875rem;
+$text-4xl: 2.25rem;
+$text-5xl: 3rem;
+$text-6xl: 3.75rem;
+
+// ----------------------------------------------------------
+// Typography — Weights
+// ----------------------------------------------------------
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+$weight-extrabold: 800;
+
+// ----------------------------------------------------------
+// Typography — Line Heights
+// ----------------------------------------------------------
+$leading-tight: 1.2;
+$leading-snug: 1.35;
+$leading-normal: 1.5;
+$leading-relaxed: 1.65;
+
+// ----------------------------------------------------------
+// Typography — Letter Spacing
+// ----------------------------------------------------------
+$tracking-tight: -0.02em;
+$tracking-normal: 0em;
+$tracking-wide: 0.05em;
+$tracking-wider: 0.1em;
+$tracking-widest: 0.15em;
+
+// ----------------------------------------------------------
+// Spacing — base unit: 4px
+// ----------------------------------------------------------
+$space-0: 0;
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-20: 5rem;
+$space-24: 6rem;
+$space-32: 8rem;
+
+// ----------------------------------------------------------
+// Border Radius — Subtle
+// ----------------------------------------------------------
+$radius-none: 0;
+$radius-sm: 2px;
+$radius-md: 4px;
+$radius-lg: 6px;
+$radius-xl: 8px;
+$radius-2xl: 12px;
+$radius-full: 9999px;
+
+// ----------------------------------------------------------
+// Shadows
+// ----------------------------------------------------------
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+$shadow-md:
+  0 4px 8px rgba(0, 0, 0, 0.5),
+  0 1px 3px rgba(0, 0, 0, 0.4);
+$shadow-lg:
+  0 12px 24px rgba(0, 0, 0, 0.6),
+  0 4px 8px rgba(0, 0, 0, 0.4);
+$shadow-xl:
+  0 24px 48px rgba(0, 0, 0, 0.7),
+  0 8px 16px rgba(0, 0, 0, 0.5);
+$shadow-glow-accent:
+  0 0 20px rgba(255, 77, 0, 0.35),
+  0 0 60px rgba(255, 77, 0, 0.15);
+$shadow-glow-secondary:
+  0 0 20px rgba(255, 179, 0, 0.3),
+  0 0 60px rgba(255, 179, 0, 0.1);
+
+// ----------------------------------------------------------
+// Transitions
+// ----------------------------------------------------------
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 400ms ease;
+$transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// ----------------------------------------------------------
+// Z-Index Stack
+// ----------------------------------------------------------
+$z-below: -1;
+$z-base: 0;
+$z-raised: 10;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-overlay: 300;
+$z-modal: 400;
+$z-toast: 500;
+$z-tooltip: 600;

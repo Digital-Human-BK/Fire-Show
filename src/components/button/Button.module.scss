@@ -1,0 +1,88 @@
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  letter-spacing: $tracking-wide;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: $space-3 $space-6;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast,
+    box-shadow $transition-fast,
+    transform $transition-spring;
+
+  &:active { transform: scale(0.97); }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}
+
+.primary {
+  background-color: $color-accent;
+  color: #fff;
+  border-color: $color-accent;
+
+  &:hover {
+    background-color: $color-accent-hover;
+    border-color: $color-accent-hover;
+    box-shadow: $shadow-glow-accent;
+  }
+}
+
+.secondary {
+  background-color: transparent;
+  color: $color-accent;
+  border-color: $color-accent-border;
+
+  &:hover {
+    background-color: $color-accent-muted;
+    border-color: $color-accent;
+  }
+}
+
+.ghost {
+  background-color: transparent;
+  color: $color-text-secondary;
+  border-color: $color-border;
+
+  &:hover {
+    background-color: $color-bg-surface;
+    color: $color-text-primary;
+    border-color: $color-border-strong;
+  }
+}
+
+.danger {
+  background-color: $color-danger;
+  color: #fff;
+  border-color: $color-danger;
+
+  &:hover {
+    background-color: $color-danger-dark;
+    border-color: $color-danger-dark;
+  }
+}
+
+.sm {
+  font-size: $text-xs;
+  padding: $space-2 $space-4;
+}
+
+.lg {
+  font-size: $text-base;
+  padding: $space-4 $space-8;
+}

@@ -1,0 +1,39 @@
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  font-family: $font-body;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  letter-spacing: $tracking-wider;
+  text-transform: uppercase;
+  padding: $space-1 $space-3;
+  border-radius: $radius-md;
+  border: 1px solid transparent;
+  line-height: 1.4;
+}
+
+.accent {
+  background-color: $color-accent-muted;
+  color: $color-accent;
+  border-color: $color-accent-border;
+}
+
+.secondary {
+  background-color: $color-secondary-muted;
+  color: $color-secondary;
+  border-color: $color-secondary-border;
+}
+
+.danger {
+  background-color: $color-danger-muted;
+  color: $color-danger;
+  border-color: $color-danger-border;
+}
+
+.neutral {
+  background-color: $color-bg-surface;
+  color: $color-text-secondary;
+  border-color: $color-border;
+}

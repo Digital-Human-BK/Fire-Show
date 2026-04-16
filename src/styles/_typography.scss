@@ -1,0 +1,167 @@
+@use "tokens" as t;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: t.$font-heading;
+  font-weight: t.$weight-bold;
+  line-height: t.$leading-tight;
+  letter-spacing: t.$tracking-tight;
+  color: t.$color-text-primary;
+}
+
+h1 {
+  font-size: t.$text-5xl;
+}
+h2 {
+  font-size: t.$text-4xl;
+}
+h3 {
+  font-size: t.$text-3xl;
+}
+h4 {
+  font-size: t.$text-2xl;
+}
+h5 {
+  font-size: t.$text-xl;
+}
+h6 {
+  font-size: t.$text-lg;
+}
+
+p {
+  line-height: t.$leading-relaxed;
+  color: t.$color-text-secondary;
+}
+
+code,
+kbd,
+pre {
+  font-family: t.$font-mono;
+  font-size: 0.9em;
+  background-color: t.$color-bg-surface;
+  border: 1px solid t.$color-border;
+  border-radius: t.$radius-md;
+  padding: t.$space-1 t.$space-2;
+}
+
+pre {
+  padding: t.$space-4;
+  overflow-x: auto;
+  line-height: t.$leading-relaxed;
+
+  code {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+}
+
+// Utility classes
+.text-xs {
+  font-size: t.$text-xs;
+}
+.text-sm {
+  font-size: t.$text-sm;
+}
+.text-base {
+  font-size: t.$text-base;
+}
+.text-lg {
+  font-size: t.$text-lg;
+}
+.text-xl {
+  font-size: t.$text-xl;
+}
+.text-2xl {
+  font-size: t.$text-2xl;
+}
+.text-3xl {
+  font-size: t.$text-3xl;
+}
+.text-4xl {
+  font-size: t.$text-4xl;
+}
+.text-5xl {
+  font-size: t.$text-5xl;
+}
+.text-6xl {
+  font-size: t.$text-6xl;
+}
+
+.font-heading {
+  font-family: t.$font-heading;
+}
+.font-body {
+  font-family: t.$font-body;
+}
+.font-mono {
+  font-family: t.$font-mono;
+}
+
+.font-light {
+  font-weight: t.$weight-light;
+}
+.font-regular {
+  font-weight: t.$weight-regular;
+}
+.font-medium {
+  font-weight: t.$weight-medium;
+}
+.font-semibold {
+  font-weight: t.$weight-semibold;
+}
+.font-bold {
+  font-weight: t.$weight-bold;
+}
+.font-extrabold {
+  font-weight: t.$weight-extrabold;
+}
+
+.tracking-tight {
+  letter-spacing: t.$tracking-tight;
+}
+.tracking-wide {
+  letter-spacing: t.$tracking-wide;
+}
+.tracking-wider {
+  letter-spacing: t.$tracking-wider;
+}
+.tracking-widest {
+  letter-spacing: t.$tracking-widest;
+}
+
+.leading-tight {
+  line-height: t.$leading-tight;
+}
+.leading-normal {
+  line-height: t.$leading-normal;
+}
+.leading-relaxed {
+  line-height: t.$leading-relaxed;
+}
+
+.text-primary {
+  color: t.$color-text-primary;
+}
+.text-secondary {
+  color: t.$color-text-secondary;
+}
+.text-muted {
+  color: t.$color-text-muted;
+}
+.text-accent {
+  color: t.$color-accent;
+}
+.text-secondary-accent {
+  color: t.$color-secondary;
+}
+.text-danger {
+  color: t.$color-danger;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
