@@ -1,5 +1,19 @@
 import styles from "./HeroSection.module.scss";
 import { HERO_IMAGE, socialLinks } from "./HeroSection.constants";
+import {
+  Camera,
+  PlayCircle,
+  FileText,
+  Globe,
+  ChevronsDown,
+} from "lucide-react";
+
+const iconMap = {
+  Camera,
+  PlayCircle,
+  FileText,
+  Globe,
+} as const;
 
 export const HeroSection = () => {
   return (
@@ -31,16 +45,19 @@ export const HeroSection = () => {
             <p className={styles.phone}>+1 (800) 555-FIRE</p>
           </div>
           <div className={styles.socialLinks}>
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                aria-label={link.label}
-                className={styles.socialLink}
-              >
-                <span className="material-symbols-outlined">{link.icon}</span>
-              </a>
-            ))}
+            {socialLinks.map((link) => {
+              const IconComponent = iconMap[link.icon as keyof typeof iconMap];
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  aria-label={link.label}
+                  className={styles.socialLink}
+                >
+                  <IconComponent size={20} />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -48,9 +65,7 @@ export const HeroSection = () => {
       <div className={styles.scrollIndicator}>
         <span className={styles.scrollText}>Scroll to Ignite</span>
         <div className={styles.scrollArrow}>
-          <span className="material-symbols-outlined">
-            keyboard_double_arrow_down
-          </span>
+          <ChevronsDown size={24} />
         </div>
       </div>
     </section>

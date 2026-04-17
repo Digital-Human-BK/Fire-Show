@@ -1,6 +1,7 @@
 import styles from "./GallerySection.module.scss";
 import { cn } from "@/utils/styles";
 import { galleryImages } from "./GallerySection.constants";
+import { Maximize } from "lucide-react";
 
 export const GallerySection = () => {
   return (
@@ -21,7 +22,7 @@ export const GallerySection = () => {
           >
             <img src={img.src} alt={img.alt} />
             <div className={styles.overlay}>
-              <span className="material-symbols-outlined">fullscreen</span>
+              <Maximize size={40} />
             </div>
           </div>
         ))}

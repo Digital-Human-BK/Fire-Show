@@ -5,8 +5,8 @@ export type SocialLink = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { icon: "photo_camera", label: "Instagram", href: "#" },
-  { icon: "play_circle", label: "Youtube", href: "#" },
-  { icon: "video_library", label: "Tiktok", href: "#" },
-  { icon: "public", label: "Facebook", href: "#" },
+  { icon: "Camera", label: "Instagram", href: "#" },
+  { icon: "PlayCircle", label: "Youtube", href: "#" },
+  { icon: "Video", label: "Tiktok", href: "#" },
+  { icon: "Globe", label: "Facebook", href: "#" },
 ];

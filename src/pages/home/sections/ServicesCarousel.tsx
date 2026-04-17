@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import styles from "./ServicesCarousel.module.scss";
 import { services } from "./ServicesCarousel.constants";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const ServicesCarousel = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -27,14 +28,14 @@ export const ServicesCarousel = () => {
             aria-label="Previous"
             onClick={() => scroll("prev")}
           >
-            <span className="material-symbols-outlined">arrow_back</span>
+            <ChevronLeft />
           </button>
           <button
             className={styles.controlBtn}
             aria-label="Next"
             onClick={() => scroll("next")}
           >
-            <span className="material-symbols-outlined">arrow_forward</span>
+            <ChevronRight />
           </button>
         </div>
       </div>

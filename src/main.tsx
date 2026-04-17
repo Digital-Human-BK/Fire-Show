@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router";
 
 import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/manrope";
-import "material-symbols/outlined.css";
 import { App } from "./App.tsx";
 import "./index.scss";
 
