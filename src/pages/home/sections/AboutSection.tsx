@@ -26,7 +26,9 @@ export const AboutSection = () => {
 
           <h2 className={styles.heading}>
             <span className={styles.headingLine}>FIFTEEN</span>
-            <span className={styles.headingGradient}>YEARS OF FLAME.</span>
+            <span className="text-gradient-primary-secondary">
+              YEARS OF FLAME.
+            </span>
           </h2>
 
           <div className={styles.bio}>

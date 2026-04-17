@@ -47,7 +47,7 @@ export const HeroSection = () => {
       <div className={styles.content}>
         <div className={styles.heroLeft}>
           <h1 className={styles.title}>
-            THE <span className={styles.titleAccent}>CONTROLLED</span>
+            THE <span className="text-gradient-primary-accent">CONTROLLED</span>
             <br />
             INFERNO
           </h1>

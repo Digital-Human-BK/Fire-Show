@@ -63,3 +63,124 @@
 .w-full {
   width: 100%;
 }
+
+// Typography utilities
+.text-xs {
+  font-size: t.$text-xs;
+}
+.text-sm {
+  font-size: t.$text-sm;
+}
+.text-base {
+  font-size: t.$text-base;
+}
+.text-lg {
+  font-size: t.$text-lg;
+}
+.text-xl {
+  font-size: t.$text-xl;
+}
+.text-2xl {
+  font-size: t.$text-2xl;
+}
+.text-3xl {
+  font-size: t.$text-3xl;
+}
+.text-4xl {
+  font-size: t.$text-4xl;
+}
+.text-5xl {
+  font-size: t.$text-5xl;
+}
+.text-6xl {
+  font-size: t.$text-6xl;
+}
+
+.font-heading {
+  font-family: t.$font-heading;
+}
+.font-body {
+  font-family: t.$font-body;
+}
+.font-mono {
+  font-family: t.$font-mono;
+}
+
+.font-light {
+  font-weight: t.$weight-light;
+}
+.font-regular {
+  font-weight: t.$weight-regular;
+}
+.font-medium {
+  font-weight: t.$weight-medium;
+}
+.font-semibold {
+  font-weight: t.$weight-semibold;
+}
+.font-bold {
+  font-weight: t.$weight-bold;
+}
+.font-extrabold {
+  font-weight: t.$weight-extrabold;
+}
+
+.tracking-tight {
+  letter-spacing: t.$tracking-tight;
+}
+.tracking-wide {
+  letter-spacing: t.$tracking-wide;
+}
+.tracking-wider {
+  letter-spacing: t.$tracking-wider;
+}
+.tracking-widest {
+  letter-spacing: t.$tracking-widest;
+}
+
+.leading-tight {
+  line-height: t.$leading-tight;
+}
+.leading-normal {
+  line-height: t.$leading-normal;
+}
+.leading-relaxed {
+  line-height: t.$leading-relaxed;
+}
+
+.text-primary {
+  color: t.$color-text-primary;
+}
+.text-secondary {
+  color: t.$color-text-secondary;
+}
+.text-muted {
+  color: t.$color-text-muted;
+}
+.text-accent {
+  color: t.$color-accent;
+}
+.text-secondary-accent {
+  color: t.$color-secondary;
+}
+.text-danger {
+  color: t.$color-danger;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+// Typography gradient utilities
+.text-gradient-primary-secondary {
+  background: linear-gradient(to right, t.$color-primary, t.$color-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-primary-accent {
+  background: linear-gradient(to right, t.$color-primary, t.$color-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

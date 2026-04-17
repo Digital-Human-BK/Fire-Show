@@ -19,7 +19,7 @@ export const ContactSection = () => {
         <h2 className={styles.heading}>
           READY TO SET THE
           <br />
-          <span className={styles.headingGradient}>STAGE ON FIRE?</span>
+          <span className="text-gradient-primary-accent">STAGE ON FIRE?</span>
         </h2>
         <p className={styles.phone}>+1 (800) 555-FIRE</p>
 

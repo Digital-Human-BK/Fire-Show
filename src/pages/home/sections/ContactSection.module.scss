@@ -61,13 +61,6 @@
   }
 }
 
-.headingGradient {
-  background: linear-gradient(to right, $color-primary, $color-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .phone {
   font-family: $font-heading;
   font-size: $text-4xl;
