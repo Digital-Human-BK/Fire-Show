@@ -1,5 +1,6 @@
 import styles from "./HeroSection.module.scss";
 import { HERO_IMAGE, socialLinks } from "./HeroSection.constants";
+
 import {
   Camera,
   PlayCircle,
@@ -16,14 +17,31 @@ const iconMap = {
 } as const;
 
 export const HeroSection = () => {
+  const isImage = false;
   return (
     <section className={styles.section} id="hero">
       <div className={styles.mediaBg}>
-        <img
-          src={HERO_IMAGE}
-          alt="Cinematic wide shot of a fire performer in a dark industrial space, intense orange flames swirling against a smoky black background"
-        />
-        <div className={styles.gradient} />
+        {isImage ? (
+          <>
+            <img
+              src={HERO_IMAGE}
+              alt="Cinematic wide shot of a fire performer in a dark industrial space, intense orange flames swirling against a smoky black background"
+            />
+            <div className={styles.gradient} />
+          </>
+        ) : (
+          <>
+            <video
+              src="/videos/woman.mp4"
+              autoPlay
+              loop
+              muted
+              className={styles.video}
+              preload="metadata"
+            />
+            <div className={styles.overlay} />
+          </>
+        )}
       </div>
 
       <div className={styles.content}>
@@ -42,11 +60,11 @@ export const HeroSection = () => {
         <div className={styles.heroRight}>
           <div className={styles.phoneGroup}>
             <span className={styles.phoneLabel}>Direct Line</span>
-            <p className={styles.phone}>+1 (800) 555-FIRE</p>
+            <p className={styles.phone}>+359 888 555-666</p>
           </div>
           <div className={styles.socialLinks}>
             {socialLinks.map((link) => {
-              const IconComponent = iconMap[link.icon as keyof typeof iconMap];
+              const IconComponent = iconMap[link.icon];
               return (
                 <a
                   key={link.label}
