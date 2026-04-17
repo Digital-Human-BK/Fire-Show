@@ -5,7 +5,9 @@ import { AnimatedButton } from "../animated-button/AnimatedButton";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState(window.location.hash || "#hero");
+  const [activeSection, setActiveSection] = useState(
+    window.location.hash || "#hero",
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +18,30 @@ export const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setActiveLink(window.location.hash);
+    const sections = ["hero", "gallery", "performances", "about", "contact"];
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
     };
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const newHash = `#${entry.target.id}`;
+          setActiveSection(newHash);
+          // Update URL hash without adding to history
+          window.history.replaceState(null, "", newHash);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -30,26 +51,26 @@ export const Navbar = () => {
       </a>
       <div className={styles.links}>
         <a
-          href="#gallery"
-          className={cn(activeLink === "#gallery" && styles.active)}
-        >
-          Gallery
-        </a>
-        <a
           href="#performances"
-          className={cn(activeLink === "#performances" && styles.active)}
+          className={cn(activeSection === "#performances" && styles.active)}
         >
           Performances
         </a>
         <a
           href="#about"
-          className={cn(activeLink === "#about" && styles.active)}
+          className={cn(activeSection === "#about" && styles.active)}
         >
           About
         </a>
         <a
+          href="#gallery"
+          className={cn(activeSection === "#gallery" && styles.active)}
+        >
+          Gallery
+        </a>
+        <a
           href="#contact"
-          className={cn(activeLink === "#contact" && styles.active)}
+          className={cn(activeSection === "#contact" && styles.active)}
         >
           Contact
         </a>
