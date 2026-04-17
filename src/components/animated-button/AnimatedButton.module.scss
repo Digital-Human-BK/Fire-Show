@@ -1,0 +1,107 @@
+.animatedBtn {
+  --border: 3px;
+  --radius: #{$radius-full};
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: $color-bg-base;
+  color: $color-text-primary;
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: $weight-semibold;
+  letter-spacing: $tracking-wider;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  padding: $space-3 $space-8;
+  white-space: nowrap;
+  user-select: none;
+  animation: glow linear 2s infinite;
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1 / 1;
+    width: 150%;
+    height: auto;
+    border-radius: 50%;
+    background: conic-gradient(
+      #fff 0%,
+      $color-bg-base 3%,
+      $color-accent 60%,
+      #fff 100%
+    );
+    animation: spin linear 2s infinite;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% - var(--border));
+    height: calc(100% - var(--border));
+    background: rgba(0, 0, 0, 0.87);
+    transform: translate(-50%, -50%);
+    border-radius: var(--radius);
+    backdrop-filter: blur(10px);
+  }
+
+  span {
+    display: block;
+    position: relative;
+    z-index: 1;
+    white-space: nowrap;
+    line-height: 1;
+  }
+}
+
+.sm {
+  font-size: $text-xs;
+  padding: $space-2 $space-6;
+}
+
+.lg {
+  font-size: $text-base;
+  padding: $space-4 $space-10;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  25% {
+    box-shadow: 0 0 0 4px rgba(255, 77, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}

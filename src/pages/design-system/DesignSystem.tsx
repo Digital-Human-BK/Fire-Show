@@ -1,3 +1,4 @@
+import { AnimatedButton } from "@/components/animated-button/AnimatedButton";
 import { Button } from "@/components/button/Button";
 import { Badge } from "@/components/badge/Badge";
 import { Card } from "@/components/card/Card";
@@ -107,6 +108,19 @@ export const DesignSystem = () => {
           <Button variant="secondary">Learn More</Button>
           <Button variant="ghost">Contact Us</Button>
           <Button variant="danger">Cancel Booking</Button>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* Animated Button */}
+      <section className={classes.section}>
+        <Tag>Effects</Tag>
+        <h2>Animated Button</h2>
+        <div className={classes.buttonRow}>
+          <AnimatedButton size="lg">Book a Show</AnimatedButton>
+          <AnimatedButton>Contact Us</AnimatedButton>
+          <AnimatedButton size="sm">Enquire</AnimatedButton>
         </div>
       </section>
 
