@@ -1,0 +1,114 @@
+.section {
+  padding: $space-24 $space-8;
+  background-color: $color-surface-container-low;
+
+  @media (min-width: $bp-md) {
+    padding-left: $space-16;
+    padding-right: $space-16;
+  }
+}
+
+.header {
+  margin-bottom: $space-16;
+}
+
+.heading {
+  font-family: $font-heading;
+  font-size: $text-4xl;
+  font-weight: $weight-bold;
+  color: $color-on-surface;
+  letter-spacing: $tracking-tight;
+  line-height: $leading-tight;
+
+  @media (min-width: $bp-md) {
+    font-size: $text-5xl;
+  }
+}
+
+.headingUnderline {
+  width: 6rem;
+  height: 4px;
+  background-color: $color-primary;
+  margin-top: $space-4;
+  border-radius: $radius-full;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 800px;
+  }
+}
+
+.cell {
+  position: relative;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .material-symbols-outlined {
+    font-size: 2.5rem;
+    color: $color-on-surface;
+  }
+}
+
+.cellHero {
+  aspect-ratio: 4 / 5;
+
+  @media (min-width: $bp-md) {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: unset;
+  }
+}
+
+.cellSmall {
+  aspect-ratio: 1;
+
+  @media (min-width: $bp-md) {
+    grid-column: span 1;
+    grid-row: span 1;
+    aspect-ratio: unset;
+  }
+}
+
+.cellWide {
+  aspect-ratio: 16 / 9;
+
+  @media (min-width: $bp-md) {
+    grid-column: span 2;
+    grid-row: span 1;
+    aspect-ratio: unset;
+  }
+}

@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar/Navbar";
+import { AboutSection } from "./sections/AboutSection";
 import { ContactSection } from "./sections/ContactSection";
-import { GalleryGrid } from "./sections/GalleryGrid";
+import { GallerySection } from "./sections/GallerySection";
 import { HeroSection } from "./sections/HeroSection";
 import { ServicesCarousel } from "./sections/ServicesCarousel";
 
@@ -10,7 +11,8 @@ export const Home = () => {
       <Navbar />
       <HeroSection />
       <ServicesCarousel />
-      <GalleryGrid />
+      <AboutSection />
+      <GallerySection />
       <ContactSection />
     </>
   );

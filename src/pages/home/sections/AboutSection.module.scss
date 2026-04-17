@@ -1,0 +1,147 @@
+.section {
+  position: relative;
+  padding: $space-24 0;
+  background-color: $color-surface;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 $space-8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-16;
+
+  @media (min-width: $bp-md) {
+    flex-direction: row;
+    padding: 0 $space-16;
+  }
+}
+
+.portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba($color-primary, 0.1);
+  flex-shrink: 0;
+
+  @media (min-width: $bp-md) {
+    width: 50%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.portraitOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+
+  @media (min-width: $bp-md) {
+    width: 50%;
+  }
+}
+
+.eyebrowRow {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.eyebrowLine {
+  display: block;
+  height: 1px;
+  width: 3rem;
+  background-color: $color-primary;
+}
+
+.eyebrow {
+  color: $color-primary;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: $text-xs;
+  font-family: $font-body;
+}
+
+.heading {
+  font-family: $font-heading;
+  font-size: $text-5xl;
+  font-weight: $weight-extrabold;
+  line-height: $leading-tight;
+  letter-spacing: $tracking-tight;
+
+  @media (min-width: $bp-md) {
+    font-size: $text-7xl;
+  }
+}
+
+.headingLine {
+  display: block;
+  color: $color-on-surface;
+}
+
+.headingGradient {
+  display: block;
+  background: linear-gradient(to right, $color-primary, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+  max-width: 36rem;
+
+  p {
+    color: $color-on-surface-variant;
+    font-size: $text-lg;
+    line-height: $leading-relaxed;
+  }
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-12;
+  margin-top: $space-4;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.statValue {
+  font-family: $font-heading;
+  font-size: $text-4xl;
+  font-weight: $weight-bold;
+  color: $color-on-surface;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: $text-xs;
+  text-transform: uppercase;
+  letter-spacing: $tracking-widest;
+  color: $color-outline;
+  font-family: $font-body;
+}
