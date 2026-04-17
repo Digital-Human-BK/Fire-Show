@@ -1,4 +1,8 @@
 import Facebook from "@/assets/icons/facebook.svg?react";
+import Instagram from "@/assets/icons/instagram.svg?react";
+import Share from "@/assets/icons/share-2.svg?react";
+import TikTok from "@/assets/icons/tiktok.svg?react";
+import Youtube from "@/assets/icons/youtube.svg?react";
 import styles from "./ContactSection.module.scss";
 
 export const ContactSection = () => {
@@ -21,19 +25,61 @@ export const ContactSection = () => {
           +359 888 555-666
         </a>
 
-        <div className={styles.socialGrid}>
-          <div className={styles.socialItem}>
-            <a href="#" aria-label="Facebook" className={styles.socialBtn}>
+        <div className={styles.socialWrapper}>
+          <a
+            href="https://www.facebook.com/"
+            aria-label="Facebook"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <div className={styles.socialIcon}>
               <Facebook />
-            </a>
-            <span className={styles.socialLabel}>Facebook</span>
-          </div>
+            </div>
+            <span>Facebook</span>
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <div className={styles.socialIcon}>
+              <Instagram />
+            </div>
+            <span>Instagram</span>
+          </a>
+          <a
+            href="https://www.tiktok.com/"
+            aria-label="TikTok"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <div className={styles.socialIcon}>
+              <TikTok />
+            </div>
+            <span>TikTok</span>
+          </a>
+          <a
+            href="https://www.youtube.com/"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <div className={styles.socialIcon}>
+              <Youtube />
+            </div>
+            <span>YouTube</span>
+          </a>
         </div>
       </div>
 
-      {/* <button className={styles.fab} aria-label="Quick booking">
-        <Zap size={24} />
-      </button> */}
+      <button className={styles.fab} aria-label="Share on social media">
+        <Share width={24} height={24} />
+      </button>
     </section>
   );
 };

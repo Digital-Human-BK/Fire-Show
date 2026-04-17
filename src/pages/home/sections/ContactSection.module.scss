@@ -71,6 +71,12 @@
   letter-spacing: $tracking-tight;
   margin-bottom: $space-20;
   line-height: $leading-tight;
+  @include text-gradient-primary-accent($color-on-surface);
+  transition: -webkit-text-fill-color $transition-slow;
+
+  &:hover {
+    -webkit-text-fill-color: transparent;
+  }
 
   @media (min-width: $bp-md) {
     font-size: $text-6xl;
@@ -85,56 +91,112 @@
   @include text-gradient-primary-accent;
 }
 
-.socialGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: $space-8;
-
-  @media (min-width: $bp-md) {
-    gap: $space-12;
-  }
-}
-
-.socialItem {
+.socialWrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: $space-3;
 }
 
-.socialBtn {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: $radius-xl;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
+.socialLink {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: $color-on-surface;
-  background: rgba(255, 255, 255, 0.05);
-  transition: border-color 0.2s;
+  height: 60px;
+  width: 60px;
+  text-decoration: none;
+  overflow: hidden;
+  background: $color-surface-container;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius-full;
+  cursor: pointer;
+  box-shadow: $shadow-md;
+  transition:
+    width $transition-slow,
+    box-shadow $transition-slow;
 
   &:hover {
-    border-color: rgba(255, 144, 109, 0.5);
+    width: 200px;
+    box-shadow: $shadow-lg;
+  }
+
+  &:nth-child(1):hover .socialIcon {
+    background: #1877f2;
+  }
+  &:nth-child(2):hover .socialIcon {
+    background: radial-gradient(
+      circle at 30% 107%,
+      #fdf497 0%,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    );
+  }
+  &:nth-child(3):hover .socialIcon {
+    background: #000;
+  }
+  &:nth-child(4):hover .socialIcon {
+    background: #ff0033;
+  }
+
+  &:hover .socialIcon {
+    color: $color-on-surface;
+  }
+
+  // Platform brand colours on label text
+  &:nth-child(1) span {
+    color: #4267b2;
+  }
+  &:nth-child(2) span {
+    color: #e1306c;
+  }
+  &:nth-child(3) span {
+    color: #fff;
+  }
+  &:nth-child(4) span {
+    color: #ff0033;
+  }
+
+  span {
+    font-family: $font-body;
+    font-size: $text-lg;
+    font-weight: $weight-medium;
+    line-height: 60px;
+    margin-left: $space-3;
+    white-space: nowrap;
+    transition: all $transition-slow;
   }
 }
 
-.socialLabel {
-  font-family: $font-body;
-  font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: $tracking-widest;
-  color: $color-outline;
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 60px;
+  width: 60px;
+  color: $color-on-surface;
+  border-radius: $radius-full;
+  box-sizing: border-box;
+  transition:
+    background $transition-slow,
+    color $transition-slow;
+
+  svg {
+    width: 25px;
+    height: 25px;
+    transition: all $transition-slow;
+  }
 }
 
 .fab {
-  position: fixed;
+  position: absolute;
   bottom: $space-8;
   right: $space-8;
   width: 3.5rem;
   height: 3.5rem;
   background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
-  border-radius: $radius-xl;
+  border-radius: $radius-full;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,11 +206,11 @@
   box-shadow:
     0 20px 48px rgba(255, 144, 109, 0.3),
     0 4px 12px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s;
+  transition: transform $transition-slow;
   z-index: $z-modal;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.2);
   }
 
   &:active {
