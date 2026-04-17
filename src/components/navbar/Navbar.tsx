@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/button/Button";
 import classes from "./Navbar.module.scss";
+import { AnimatedButton } from "../animated-button/AnimatedButton";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,9 +24,7 @@ export const Navbar = () => {
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
-      <Button variant="fire" size={isScrolled ? "sm" : "md"}>
-        Book Show
-      </Button>
+      <AnimatedButton size={isScrolled ? "sm" : "md"}>Book Show</AnimatedButton>
     </nav>
   );
 };

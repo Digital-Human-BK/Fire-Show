@@ -21,6 +21,9 @@
   white-space: nowrap;
   user-select: none;
   animation: glow linear 2s infinite;
+  transition:
+    padding 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    font-size 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 
   &:focus-visible {
     outline: 2px solid $color-accent;
