@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import styles from "./ServicesCarousel.module.scss";
+import classes from "./ServicesCarousel.module.scss";
 
 type ServiceCard = {
   title: string;
@@ -49,22 +49,22 @@ export const ServicesCarousel = () => {
   };
 
   return (
-    <section className={styles.section} id="performances">
-      <div className={styles.header}>
-        <div className={styles.headerText}>
-          <span className={styles.eyebrow}>Experiences</span>
-          <h2 className={styles.heading}>Live Mastery</h2>
+    <section className={classes.section} id="performances">
+      <div className={classes.header}>
+        <div className={classes.headerText}>
+          <span className={classes.eyebrow}>Experiences</span>
+          <h2 className={classes.heading}>Live Mastery</h2>
         </div>
-        <div className={styles.controls}>
+        <div className={classes.controls}>
           <button
-            className={styles.controlBtn}
+            className={classes.controlBtn}
             aria-label="Previous"
             onClick={() => scroll("prev")}
           >
             <span className="material-symbols-outlined">arrow_back</span>
           </button>
           <button
-            className={styles.controlBtn}
+            className={classes.controlBtn}
             aria-label="Next"
             onClick={() => scroll("next")}
           >
@@ -73,23 +73,23 @@ export const ServicesCarousel = () => {
         </div>
       </div>
 
-      <div className={styles.carousel} ref={scrollRef}>
+      <div className={classes.carousel} ref={scrollRef}>
         {services.map((service) => (
-          <div key={service.title} className={styles.card}>
-            <div className={styles.cardMedia}>
+          <div key={service.title} className={classes.card}>
+            <div className={classes.cardMedia}>
               <img
                 src={service.image}
                 alt={service.alt}
-                className={styles.cardImage}
+                className={classes.cardImage}
               />
-              <div className={styles.cardGradient} />
-              <div className={styles.cardInfo}>
-                <div className={styles.cardInfoRow}>
+              <div className={classes.cardGradient} />
+              <div className={classes.cardInfo}>
+                <div className={classes.cardInfoRow}>
                   <div>
-                    <h3 className={styles.cardTitle}>{service.title}</h3>
-                    <p className={styles.cardSubtitle}>{service.subtitle}</p>
+                    <h3 className={classes.cardTitle}>{service.title}</h3>
+                    <p className={classes.cardSubtitle}>{service.subtitle}</p>
                   </div>
-                  <p className={styles.cardPrice}>{service.price}</p>
+                  <p className={classes.cardPrice}>{service.price}</p>
                 </div>
               </div>
             </div>

@@ -21,7 +21,8 @@
 ## UI & Styling
 
 - **Mobile-first** responsive design is mandatory.
-- Use **camelCase for class names** (e.g., `.userCard`) in SCSS to allow dot notation in TypeScript (`styles.userCard`).
+- **SCSS Import Naming:** ALWAYS import SCSS modules as `classes` (e.g., `import classes from './[ComponentName].module.scss';`).
+- **Class Naming:** Use **camelCase** for SCSS class names (e.g., `.userCard`) to allow dot notation in TypeScript (`classes.userCard`).
 - **Design Tokens:** Use variables from the Kinetic Dark System (e.g., `$color-accent`, `$space-4`, `$font-heading`). Hardcoded hex/rgba values are forbidden.
 
 ## Component Structure

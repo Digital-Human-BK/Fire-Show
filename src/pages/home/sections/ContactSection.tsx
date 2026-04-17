@@ -1,4 +1,4 @@
-import styles from "./ContactSection.module.scss";
+import classes from "./ContactSection.module.scss";
 
 type SocialLink = {
   icon: string;
@@ -15,35 +15,35 @@ const socialLinks: SocialLink[] = [
 
 export const ContactSection = () => {
   return (
-    <section className={styles.section} id="contact">
-      <div className={styles.glow} aria-hidden="true" />
+    <section className={classes.section} id="contact">
+      <div className={classes.glow} aria-hidden="true" />
 
-      <div className={styles.content}>
-        <span className={styles.eyebrow}>Inquiries &amp; Bookings</span>
-        <h2 className={styles.heading}>
+      <div className={classes.content}>
+        <span className={classes.eyebrow}>Inquiries &amp; Bookings</span>
+        <h2 className={classes.heading}>
           READY TO SET THE
           <br />
-          <span className={styles.headingGradient}>STAGE ON FIRE?</span>
+          <span className={classes.headingGradient}>STAGE ON FIRE?</span>
         </h2>
-        <p className={styles.phone}>+1 (800) 555-FIRE</p>
+        <p className={classes.phone}>+1 (800) 555-FIRE</p>
 
-        <div className={styles.socialGrid}>
+        <div className={classes.socialGrid}>
           {socialLinks.map((link) => (
-            <div key={link.label} className={styles.socialItem}>
+            <div key={link.label} className={classes.socialItem}>
               <a
                 href={link.href}
                 aria-label={link.label}
-                className={styles.socialBtn}
+                className={classes.socialBtn}
               >
                 <span className="material-symbols-outlined">{link.icon}</span>
               </a>
-              <span className={styles.socialLabel}>{link.label}</span>
+              <span className={classes.socialLabel}>{link.label}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <button className={styles.fab} aria-label="Quick booking">
+      <button className={classes.fab} aria-label="Quick booking">
         <span className="material-symbols-outlined">bolt</span>
       </button>
     </section>

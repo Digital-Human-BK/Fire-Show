@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/button/Button";
-import styles from "./Navbar.module.scss";
+import classes from "./Navbar.module.scss";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,11 +14,11 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
-      <a href="#hero" className={styles.logo}>
+    <nav className={`${classes.nav} ${isScrolled ? classes.scrolled : ""}`}>
+      <a href="#hero" className={classes.logo}>
         INFERNO
       </a>
-      <div className={styles.links}>
+      <div className={classes.links}>
         <a href="#gallery">Gallery</a>
         <a href="#performances">Performances</a>
         <a href="#about">About</a>
