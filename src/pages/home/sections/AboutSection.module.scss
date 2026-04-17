@@ -1,3 +1,5 @@
+@use "@/styles/_mixins" as *;
+
 .section {
   position: relative;
   padding: $space-24 0;
@@ -136,4 +138,8 @@
   letter-spacing: $tracking-widest;
   color: $color-outline;
   font-family: $font-body;
+}
+
+.gradientText {
+  @include text-gradient-primary-secondary;
 }

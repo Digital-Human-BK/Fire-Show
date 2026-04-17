@@ -83,3 +83,17 @@
     outline-offset: 3px;
   }
 }
+
+@mixin text-gradient-primary-accent($fill-color: transparent) {
+  background: linear-gradient(to right, t.$color-primary, t.$color-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: $fill-color;
+  background-clip: text;
+}
+
+@mixin text-gradient-primary-secondary($fill-color: transparent) {
+  background: linear-gradient(to right, t.$color-primary, t.$color-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: $fill-color;
+  background-clip: text;
+}

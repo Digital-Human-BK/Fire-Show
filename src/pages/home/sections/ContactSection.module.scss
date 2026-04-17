@@ -1,3 +1,5 @@
+@use "@/styles/_mixins" as *;
+
 .section {
   position: relative;
   min-height: 100vh;
@@ -77,6 +79,10 @@
   @media (min-width: $bp-lg) {
     font-size: $text-7xl;
   }
+}
+
+.gradientText {
+  @include text-gradient-primary-accent;
 }
 
 .socialGrid {

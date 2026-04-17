@@ -185,6 +185,9 @@ $shadow-lg:
 $shadow-xl:
   0 24px 48px rgba(0, 0, 0, 0.7),
   0 8px 16px rgba(0, 0, 0, 0.5);
+$shadow-glow-accent-sm:
+  0 0 4px rgba(255, 77, 0, 0.35),
+  0 0 10px rgba(255, 77, 0, 0.15);
 $shadow-glow-accent:
   0 0 20px rgba(255, 77, 0, 0.35),
   0 0 60px rgba(255, 77, 0, 0.15);

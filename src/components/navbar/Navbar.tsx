@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import styles from "./Navbar.module.scss";
 import { cn } from "@/utils/styles";
+import { useEffect, useState } from "react";
 import { AnimatedButton } from "../animated-button/AnimatedButton";
+import styles from "./Navbar.module.scss";
 
 const navSections = [
   { id: "performances", label: "Performances" },
@@ -94,7 +94,11 @@ export const Navbar = () => {
           </a>
         ))}
       </div>
-      <AnimatedButton size={isScrolled ? "sm" : "md"}>Book Show</AnimatedButton>
+      <a href="tel:+359888555666" aria-label="Call +359 888 555 666">
+        <AnimatedButton size={isScrolled ? "sm" : "md"}>
+          Book Show
+        </AnimatedButton>
+      </a>
     </nav>
   );
 };
