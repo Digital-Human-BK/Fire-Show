@@ -24,7 +24,7 @@ export const HeroSection = () => {
         ) : (
           <>
             <video
-              src="/videos/woman.mp4"
+              src="/videos/fire.mp4"
               autoPlay
               loop
               muted

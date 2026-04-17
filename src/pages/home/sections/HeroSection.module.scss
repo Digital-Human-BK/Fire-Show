@@ -89,7 +89,7 @@
 
 .heroLeft {
   opacity: 0;
-  animation: slideUpFade 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation: slideUpFade 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
 .heroRight {
@@ -98,7 +98,7 @@
   gap: $space-4;
   align-items: flex-start;
   opacity: 0;
-  animation: slideUpFade 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.2s forwards;
+  animation: slideUpFade 2s cubic-bezier(0.19, 1, 0.22, 1) 0.2s forwards;
 
   @media (min-width: $bp-md) {
     align-items: flex-end;
@@ -148,7 +148,7 @@
   font-family: $font-body;
   text-transform: uppercase;
   letter-spacing: $tracking-widest;
-  font-size: 0.625rem;
+  font-size: $text-xs;
   margin-bottom: $space-1;
 }
 
@@ -162,7 +162,7 @@
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
-  transition: -webkit-text-fill-color 0.5s ease;
+  transition: -webkit-text-fill-color $transition-slow;
 
   &:hover {
     -webkit-text-fill-color: transparent;
