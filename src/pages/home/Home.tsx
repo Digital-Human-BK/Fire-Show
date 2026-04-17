@@ -1,10 +1,17 @@
-import { Link } from "react-router";
+import { Navbar } from "@/components/navbar/Navbar";
+import { ContactSection } from "./sections/ContactSection";
+import { GalleryGrid } from "./sections/GalleryGrid";
+import { HeroSection } from "./sections/HeroSection";
+import { ServicesCarousel } from "./sections/ServicesCarousel";
 
 export const Home = () => {
   return (
-    <div>
-      <Link to="/design-system">Go to design system</Link>
-      <h1>HOME PAGE</h1>
-    </div>
+    <>
+      <Navbar />
+      <HeroSection />
+      <ServicesCarousel />
+      <GalleryGrid />
+      <ContactSection />
+    </>
   );
 };

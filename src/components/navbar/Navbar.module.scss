@@ -1,0 +1,62 @@
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: $z-sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $space-4 $space-8;
+  width: 95%;
+  max-width: 72rem;
+  margin: 0 auto;
+  border-radius: $radius-full;
+  background: rgba($color-surface-container, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 50px -12px rgba($color-primary, 0.15);
+  top: 3rem;
+  transition:
+    top 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    padding 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.scrolled {
+  top: 1rem;
+  padding-top: $space-3;
+  padding-bottom: $space-3;
+}
+
+.logo {
+  font-family: $font-heading;
+  font-size: $text-2xl;
+  font-weight: $weight-bold;
+  line-height: 1;
+  letter-spacing: $tracking-tight;
+  color: $color-primary;
+}
+
+.links {
+  display: none;
+  align-items: center;
+  line-height: 1;
+  gap: $space-8;
+
+  @media (min-width: $bp-md) {
+    display: flex;
+  }
+
+  a {
+    font-family: $font-heading;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    font-size: $text-sm;
+    color: $color-on-surface-variant;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

@@ -1,5 +1,19 @@
 // Global entry point — order matters
-@use 'styles/tokens';
-@use 'styles/reset';
-@use 'styles/typography';
-@use 'styles/utilities';
+@use "styles/tokens";
+@use "styles/reset";
+@use "styles/typography";
+@use "styles/utilities";
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 300,
+    "GRAD" 0,
+    "opsz" 24;
+  user-select: none;
+}
+
+::selection {
+  background-color: #ff906d;
+  color: #000000;
+}

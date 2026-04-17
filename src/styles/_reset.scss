@@ -20,8 +20,8 @@ body {
   font-size: t.$text-base;
   font-weight: t.$weight-regular;
   line-height: t.$leading-normal;
-  color: t.$color-text-primary;
-  background-color: t.$color-bg-base;
+  color: t.$color-on-surface;
+  background-color: t.$color-surface;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

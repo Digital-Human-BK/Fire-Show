@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes } from "react";
 import classes from "./Button.module.scss";
 
-type Variant = "primary" | "secondary" | "ghost" | "danger";
+type Variant = "primary" | "secondary" | "ghost" | "danger" | "fire";
 type Size = "sm" | "md" | "lg";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -14,6 +14,7 @@ const variantClass: Record<Variant, string> = {
   secondary: classes.secondary,
   ghost: classes.ghost,
   danger: classes.danger,
+  fire: classes.fire,
 };
 
 const sizeClass: Record<Size, string> = {

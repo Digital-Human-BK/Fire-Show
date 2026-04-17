@@ -17,20 +17,60 @@ $bp-2xl: 1440px;
 // ----------------------------------------------------------
 // Colors — Base Layers
 // ----------------------------------------------------------
-$color-bg-base: #121212;
-$color-bg-elevated: #1c1c1c;
+$color-bg-base: #0e0e0e;
+$color-bg-elevated: #1a1a1a;
 $color-bg-surface: #242424;
 $color-bg-overlay: #2e2e2e;
 
 // ----------------------------------------------------------
-// Colors — Accents
+// Colors — Material Design Surface System
+// ----------------------------------------------------------
+$color-surface: #0e0e0e;
+$color-surface-dim: #0e0e0e;
+$color-surface-bright: #2c2c2c;
+$color-surface-variant: #262626;
+$color-surface-container-lowest: #000000;
+$color-surface-container-low: #131313;
+$color-surface-container: #1a1a1a;
+$color-surface-container-high: #20201f;
+$color-surface-container-highest: #262626;
+
+// ----------------------------------------------------------
+// Colors — Primary System
+// ----------------------------------------------------------
+$color-primary: #ff906d;
+$color-primary-dim: #ff7346;
+$color-primary-fixed: #ff784d;
+$color-primary-fixed-dim: #ff5d26;
+$color-primary-container: #ff784d;
+$color-on-primary: #5b1600;
+$color-on-primary-fixed: #000000;
+$color-on-primary-container: #460f00;
+$color-inverse-primary: #af3200;
+
+// ----------------------------------------------------------
+// Colors — On-Surface System
+// ----------------------------------------------------------
+$color-on-surface: #ffffff;
+$color-on-surface-variant: #adaaaa;
+$color-inverse-surface: #fcf9f8;
+$color-inverse-on-surface: #565555;
+
+// ----------------------------------------------------------
+// Colors — Outline System
+// ----------------------------------------------------------
+$color-outline: #767575;
+$color-outline-variant: #484847;
+
+// ----------------------------------------------------------
+// Colors — Accents (legacy)
 // ----------------------------------------------------------
 $color-accent: #ff4d00;
 $color-accent-hover: #ff6a2b;
 $color-accent-muted: rgba(255, 77, 0, 0.12);
 $color-accent-border: rgba(255, 77, 0, 0.4);
 
-$color-secondary: #ffb300;
+$color-secondary: #feb300;
 $color-secondary-muted: rgba(255, 179, 0, 0.12);
 $color-secondary-border: rgba(255, 179, 0, 0.3);
 
@@ -73,6 +113,8 @@ $text-3xl: 1.875rem;
 $text-4xl: 2.25rem;
 $text-5xl: 3rem;
 $text-6xl: 3.75rem;
+$text-7xl: 4.5rem;
+$text-8xl: 6rem;
 
 // ----------------------------------------------------------
 // Typography — Weights
