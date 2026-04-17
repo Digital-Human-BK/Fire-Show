@@ -6,23 +6,13 @@ import { Input } from "@/components/input/Input";
 import { Textarea } from "@/components/input/Textarea";
 import { Divider } from "@/components/divider/Divider";
 import { Tag } from "@/components/tag/Tag";
-import classes from "./DesignSystem.module.scss";
-
-const swatches = [
-  { label: "Primary Accent", value: "#FF4D00" },
-  { label: "Secondary (Amber)", value: "#FFB300" },
-  { label: "Danger (Deep Red)", value: "#D32F2F" },
-  { label: "Base", value: "#121212" },
-  { label: "Elevated", value: "#1C1C1C" },
-  { label: "Surface", value: "#242424" },
-  { label: "Text Primary", value: "#F5F5F5" },
-  { label: "Text Muted", value: "#6B6B6B" },
-];
+import styles from "./DesignSystem.module.scss";
+import { swatches } from "./DesignSystem.constants";
 
 export const DesignSystem = () => {
   return (
-    <div className={classes.page}>
-      <header className={classes.header}>
+    <div className={styles.page}>
+      <header className={styles.header}>
         <Tag>Design System</Tag>
         <h1>Kinetic Dark System</h1>
         <p>
@@ -34,18 +24,18 @@ export const DesignSystem = () => {
       <Divider />
 
       {/* Colors */}
-      <section className={classes.section}>
+      <section className={styles.section}>
         <Tag>Palette</Tag>
         <h2>Colors</h2>
-        <div className={classes.swatches}>
+        <div className={styles.swatches}>
           {swatches.map((swatch) => (
-            <div key={swatch.value} className={classes.swatch}>
+            <div key={swatch.value} className={styles.swatch}>
               <div
-                className={classes.swatchColor}
+                className={styles.swatchColor}
                 style={{ backgroundColor: swatch.value }}
               />
-              <p className={classes.swatchName}>{swatch.label}</p>
-              <p className={classes.swatchValue}>{swatch.value}</p>
+              <p className={styles.swatchName}>{swatch.label}</p>
+              <p className={styles.swatchValue}>{swatch.value}</p>
             </div>
           ))}
         </div>
@@ -54,19 +44,19 @@ export const DesignSystem = () => {
       <Divider />
 
       {/* Typography */}
-      <section className={classes.section}>
+      <section className={styles.section}>
         <Tag>Type</Tag>
         <h2>Typography</h2>
-        <div className={classes.typeSection}>
+        <div className={styles.typeSection}>
           <div>
-            <p className={classes.typeLabel}>Space Grotesk — Headings</p>
+            <p className={styles.typeLabel}>Space Grotesk — Headings</p>
             <h1>The Controlled Inferno</h1>
             <h3>Live Pyrotechnic Mastery</h3>
             <h5>Visual Echoes of Heat</h5>
           </div>
           <Divider />
           <div>
-            <p className={classes.typeLabel}>Manrope — Body &amp; Labels</p>
+            <p className={styles.typeLabel}>Manrope — Body &amp; Labels</p>
             <p style={{ fontSize: "1.125rem", maxWidth: "600px" }}>
               Cinematic fire performance art for high-end events, cinematic
               productions, and immersive festivals. We bring controlled chaos to
@@ -89,10 +79,10 @@ export const DesignSystem = () => {
       <Divider />
 
       {/* Buttons */}
-      <section className={classes.section}>
+      <section className={styles.section}>
         <Tag>Actions</Tag>
         <h2>Buttons</h2>
-        <div className={classes.buttonRow}>
+        <div className={styles.buttonRow}>
           <Button variant="primary" size="lg">
             Book a Show
           </Button>
@@ -101,7 +91,7 @@ export const DesignSystem = () => {
             Enquire
           </Button>
         </div>
-        <div className={classes.buttonRow}>
+        <div className={styles.buttonRow}>
           <Button variant="secondary" size="lg">
             View Gallery
           </Button>
@@ -114,10 +104,10 @@ export const DesignSystem = () => {
       <Divider />
 
       {/* Animated Button */}
-      <section className={classes.section}>
+      <section className={styles.section}>
         <Tag>Effects</Tag>
         <h2>Animated Button</h2>
-        <div className={classes.buttonRow}>
+        <div className={styles.buttonRow}>
           <AnimatedButton size="lg">Book a Show</AnimatedButton>
           <AnimatedButton>Contact Us</AnimatedButton>
           <AnimatedButton size="sm">Enquire</AnimatedButton>
@@ -127,10 +117,10 @@ export const DesignSystem = () => {
       <Divider />
 
       {/* Badges */}
-      <section className={classes.section}>
+      <section className={styles.section}>
         <Tag>Labels</Tag>
         <h2>Badges</h2>
-        <div className={classes.badgeRow}>
+        <div className={styles.badgeRow}>
           <Badge variant="accent">Live Performance</Badge>
           <Badge variant="secondary">from $800</Badge>
           <Badge variant="danger">Sold Out</Badge>
@@ -141,10 +131,10 @@ export const DesignSystem = () => {
       <Divider />
 
       {/* Cards */}
-      <section className={classes.section}>
+      <section className={styles.section}>
         <Tag>Surfaces</Tag>
         <h2>Cards</h2>
-        <div className={classes.cards}>
+        <div className={styles.cards}>
           <Card>
             <Badge variant="accent">15 min · High Intensity</Badge>
             <h4>Solo</h4>
@@ -152,7 +142,7 @@ export const DesignSystem = () => {
               Single performer, full fire manipulation set designed for intimate
               venues and corporate events.
             </p>
-            <p className={classes.price}>from $800</p>
+            <p className={styles.price}>from $800</p>
           </Card>
           <Card variant="accent">
             <Badge variant="accent">Synchronized Ritual</Badge>
@@ -161,7 +151,7 @@ export const DesignSystem = () => {
               Two performers in choreographed synchrony, creating dramatic
               visual narratives with fire.
             </p>
-            <p className={classes.price}>from $1,500</p>
+            <p className={styles.price}>from $1,500</p>
           </Card>
           <Card variant="surface">
             <Badge variant="secondary">Festival Grade</Badge>
@@ -170,7 +160,7 @@ export const DesignSystem = () => {
               Full pyrotechnic ensemble with multiple performers and stage-grade
               effects.
             </p>
-            <p className={classes.price}>from $4,000</p>
+            <p className={styles.price}>from $4,000</p>
           </Card>
         </div>
       </section>
@@ -178,10 +168,10 @@ export const DesignSystem = () => {
       <Divider />
 
       {/* Form */}
-      <section className={classes.section}>
+      <section className={styles.section}>
         <Tag>Forms</Tag>
         <h2>Inputs</h2>
-        <div className={classes.form}>
+        <div className={styles.form}>
           <Input
             label="Full Name"
             id="ds-name"

@@ -1,26 +1,10 @@
 import type { ButtonHTMLAttributes } from "react";
-import classes from "./Button.module.scss";
-
-type Variant = "primary" | "secondary" | "ghost" | "danger" | "fire";
-type Size = "sm" | "md" | "lg";
+import styles from "./Button.module.scss";
+import { cn } from "@/utils/styles";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: Variant;
-  size?: Size;
-};
-
-const variantClass: Record<Variant, string> = {
-  primary: classes.primary,
-  secondary: classes.secondary,
-  ghost: classes.ghost,
-  danger: classes.danger,
-  fire: classes.fire,
-};
-
-const sizeClass: Record<Size, string> = {
-  sm: classes.sm,
-  md: "",
-  lg: classes.lg,
+  variant?: "primary" | "secondary" | "ghost" | "danger" | "fire";
+  size?: "sm" | "md" | "lg";
 };
 
 export const Button = ({
@@ -30,9 +14,7 @@ export const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  const cls = [classes.btn, variantClass[variant], sizeClass[size], className]
-    .filter(Boolean)
-    .join(" ");
+  const cls = cn(styles.btn, styles[variant], styles[size], className);
 
   return (
     <button className={cls} {...props}>

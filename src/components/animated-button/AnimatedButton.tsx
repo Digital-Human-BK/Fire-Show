@@ -1,16 +1,9 @@
 import type { ButtonHTMLAttributes } from "react";
-import classes from "./AnimatedButton.module.scss";
-
-type Size = "sm" | "md" | "lg";
+import styles from "./AnimatedButton.module.scss";
+import { cn } from "@/utils/styles";
 
 type AnimatedButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  size?: Size;
-};
-
-const sizeClass: Record<Size, string> = {
-  sm: classes.sm,
-  md: "",
-  lg: classes.lg,
+  size?: "sm" | "md" | "lg";
 };
 
 export const AnimatedButton = ({
@@ -19,9 +12,8 @@ export const AnimatedButton = ({
   children,
   ...props
 }: AnimatedButtonProps) => {
-  const cls = [classes.animatedBtn, sizeClass[size], className]
-    .filter(Boolean)
-    .join(" ");
+  const sizeClass = styles[size];
+  const cls = cn(styles.animatedBtn, sizeClass, className);
 
   return (
     <button className={cls} {...props}>

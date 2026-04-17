@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes } from "react";
-import classes from "./Input.module.scss";
+import styles from "./Input.module.scss";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -7,13 +7,13 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 
 export const Input = ({ label, id, ...props }: InputProps) => {
   return (
-    <div className={classes.field}>
+    <div className={styles.field}>
       {label && (
-        <label className={classes.label} htmlFor={id}>
+        <label className={styles.label} htmlFor={id}>
           {label}
         </label>
       )}
-      <input className={classes.input} id={id} {...props} />
+      <input className={styles.input} id={id} {...props} />
     </div>
   );
 };

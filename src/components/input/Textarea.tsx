@@ -1,5 +1,5 @@
 import type { TextareaHTMLAttributes } from "react";
-import classes from "./Input.module.scss";
+import styles from "./Textarea.module.scss";
 
 type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   label?: string;
@@ -7,13 +7,13 @@ type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
 
 export const Textarea = ({ label, id, ...props }: TextareaProps) => {
   return (
-    <div className={classes.field}>
+    <div className={styles.field}>
       {label && (
-        <label className={classes.label} htmlFor={id}>
+        <label className={styles.label} htmlFor={id}>
           {label}
         </label>
       )}
-      <textarea className={classes.textarea} id={id} {...props} />
+      <textarea className={styles.textarea} id={id} {...props} />
     </div>
   );
 };

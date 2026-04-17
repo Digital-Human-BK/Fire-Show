@@ -62,7 +62,7 @@
 }
 
 .headingGradient {
-  background: linear-gradient(to right, #ff906d, $color-primary);
+  background: linear-gradient(to right, $color-primary, $color-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -129,7 +129,7 @@
   font-size: 0.5625rem;
   text-transform: uppercase;
   letter-spacing: $tracking-widest;
-  color: #737373;
+  color: $color-outline;
 }
 
 .fab {
@@ -138,7 +138,7 @@
   right: $space-8;
   width: 3.5rem;
   height: 3.5rem;
-  background: linear-gradient(135deg, #ff906d 0%, #ff3d00 100%);
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
   border-radius: $radius-xl;
   display: flex;
   align-items: center;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import classes from "./Navbar.module.scss";
+import styles from "./Navbar.module.scss";
+import { cn } from "@/utils/styles";
 import { AnimatedButton } from "../animated-button/AnimatedButton";
 
 export const Navbar = () => {
@@ -14,11 +15,11 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`${classes.nav} ${isScrolled ? classes.scrolled : ""}`}>
-      <a href="#hero" className={classes.logo}>
+    <nav className={cn(styles.nav, isScrolled && styles.scrolled)}>
+      <a href="#hero" className={styles.logo}>
         INFERNO
       </a>
-      <div className={classes.links}>
+      <div className={styles.links}>
         <a href="#gallery">Gallery</a>
         <a href="#performances">Performances</a>
         <a href="#about">About</a>

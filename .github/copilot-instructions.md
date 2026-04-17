@@ -13,21 +13,20 @@
 
 ## Coding Standards
 
-- Use **functional components** with arrow functions.
-- Use **`type`** instead of `interface` for defining props and state.
-- **STRICTLY use named exports**; avoid default exports for better refactoring and intellisense.
-- Use **descriptive variable names** (e.g., `isUserLoggedIn` instead of `auth`).
+- **HMR & Pure Component Files:** To ensure Vite Fast Refresh (HMR) works, `.tsx` files must **ONLY** export React components.
+- **No Side Effects:** Avoid top-level logic or side effects in `.tsx` files that interfere with module "hot-swapping."
+- **Export Style:** **STRICTLY use named exports**; avoid default exports.
+- **Components:** Use functional components with arrow functions and `type` for props/state.
+- **Naming:** Use descriptive variable names (e.g., `isUserLoggedIn`).
 
 ## UI & Styling
 
+- **SCSS Import Naming (STRICT):** ALWAYS import SCSS modules as `styles` (e.g., `import styles from './[ComponentName].module.scss';`).
 - **Mobile-first** responsive design is mandatory.
-- **SCSS Import Naming:** ALWAYS import SCSS modules as `classes` (e.g., `import classes from './[ComponentName].module.scss';`).
-- **Class Naming:** Use **camelCase** for SCSS class names (e.g., `.userCard`) to allow dot notation in TypeScript (`classes.userCard`).
-- **Design Tokens:** Use variables from the Kinetic Dark System (e.g., `$color-accent`, `$space-4`, `$font-heading`). Hardcoded hex/rgba values are forbidden.
+- **Class Naming:** Use **camelCase** for SCSS class names (e.g., `.userCard`) to allow dot notation in TS (`styles.userCard`).
+- **Design Tokens:** Use variables from the Kinetic Dark System (e.g., `$color-accent`, `$space-4`). Hardcoded hex/rgba values are forbidden.
 
 ## Component Structure
 
-- **Components:** `src/components/` (Shared and UI components).
-- **Pages:** `src/pages/` (Route-level components).
-- **Global Styles:** `src/styles/` (Store `tokens.scss` and global resets here).
-- **Component Creation:** When creating a component, always create the matching `[ComponentName].module.scss` in the same directory.
+- **Directories:** Components in `src/components/`, Pages in `src/pages/`, Styles in `src/styles/`.
+- **Creation:** When creating a component, generate the `.tsx`, the `.module.scss`, and (if needed) the `.utils.ts` or `.constants.ts` simultaneously.

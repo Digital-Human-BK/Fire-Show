@@ -1,0 +1,45 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.label {
+  display: block;
+  font-size: $text-sm;
+  font-weight: $weight-medium;
+  color: $color-text-secondary;
+  letter-spacing: $tracking-wide;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  font-family: $font-body;
+  font-size: $text-base;
+  font-weight: $weight-regular;
+  color: $color-text-primary;
+  background-color: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  line-height: $leading-normal;
+  outline: none;
+  resize: vertical;
+  min-height: 120px;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+  &:hover {
+    border-color: $color-border-strong;
+  }
+
+  &:focus {
+    border-color: $color-accent-border;
+    box-shadow: 0 0 0 3px $color-accent-muted;
+  }
+}

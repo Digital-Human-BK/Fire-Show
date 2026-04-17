@@ -1,5 +1,5 @@
 // Global entry point — order matters
-@use "styles/tokens";
+@use "@/styles/tokens" as *;
 @use "styles/reset";
 @use "styles/typography";
 @use "styles/utilities";
@@ -14,6 +14,6 @@
 }
 
 ::selection {
-  background-color: #ff906d;
-  color: #000000;
+  background-color: $color-primary;
+  color: $color-on-surface;
 }

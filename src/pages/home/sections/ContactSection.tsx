@@ -1,49 +1,37 @@
-import classes from "./ContactSection.module.scss";
-
-type SocialLink = {
-  icon: string;
-  label: string;
-  href: string;
-};
-
-const socialLinks: SocialLink[] = [
-  { icon: "photo_camera", label: "Instagram", href: "#" },
-  { icon: "play_circle", label: "Youtube", href: "#" },
-  { icon: "video_library", label: "Tiktok", href: "#" },
-  { icon: "public", label: "Facebook", href: "#" },
-];
+import styles from "./ContactSection.module.scss";
+import { socialLinks } from "./ContactSection.constants";
 
 export const ContactSection = () => {
   return (
-    <section className={classes.section} id="contact">
-      <div className={classes.glow} aria-hidden="true" />
+    <section className={styles.section} id="contact">
+      <div className={styles.glow} aria-hidden="true" />
 
-      <div className={classes.content}>
-        <span className={classes.eyebrow}>Inquiries &amp; Bookings</span>
-        <h2 className={classes.heading}>
+      <div className={styles.content}>
+        <span className={styles.eyebrow}>Inquiries &amp; Bookings</span>
+        <h2 className={styles.heading}>
           READY TO SET THE
           <br />
-          <span className={classes.headingGradient}>STAGE ON FIRE?</span>
+          <span className={styles.headingGradient}>STAGE ON FIRE?</span>
         </h2>
-        <p className={classes.phone}>+1 (800) 555-FIRE</p>
+        <p className={styles.phone}>+1 (800) 555-FIRE</p>
 
-        <div className={classes.socialGrid}>
+        <div className={styles.socialGrid}>
           {socialLinks.map((link) => (
-            <div key={link.label} className={classes.socialItem}>
+            <div key={link.label} className={styles.socialItem}>
               <a
                 href={link.href}
                 aria-label={link.label}
-                className={classes.socialBtn}
+                className={styles.socialBtn}
               >
                 <span className="material-symbols-outlined">{link.icon}</span>
               </a>
-              <span className={classes.socialLabel}>{link.label}</span>
+              <span className={styles.socialLabel}>{link.label}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <button className={classes.fab} aria-label="Quick booking">
+      <button className={styles.fab} aria-label="Quick booking">
         <span className="material-symbols-outlined">bolt</span>
       </button>
     </section>

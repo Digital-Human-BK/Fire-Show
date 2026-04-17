@@ -44,10 +44,10 @@
     height: auto;
     border-radius: 50%;
     background: conic-gradient(
-      #fff 0%,
+      $color-on-surface 0%,
       $color-bg-base 3%,
       $color-accent 60%,
-      #fff 100%
+      $color-on-surface 100%
     );
     animation: spin linear 2s infinite;
     transform: translate(-50%, -50%);

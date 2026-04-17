@@ -1,19 +1,12 @@
 import type { ReactNode, CSSProperties } from "react";
-import classes from "./Card.module.scss";
-
-type Variant = "default" | "accent" | "surface";
+import styles from "./Card.module.scss";
+import { cn } from "@/utils/styles";
 
 type CardProps = {
-  variant?: Variant;
+  variant?: "default" | "accent" | "surface";
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
-};
-
-const variantClass: Record<Variant, string> = {
-  default: "",
-  accent: classes.accent,
-  surface: classes.surface,
 };
 
 export const Card = ({
@@ -22,9 +15,7 @@ export const Card = ({
   className = "",
   style,
 }: CardProps) => {
-  const cls = [classes.card, variantClass[variant], className]
-    .filter(Boolean)
-    .join(" ");
+  const cls = cn(styles.card, styles[variant], className);
 
   return (
     <div className={cls} style={style}>

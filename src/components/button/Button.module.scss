@@ -36,7 +36,7 @@
 
 .primary {
   background-color: $color-accent;
-  color: #fff;
+  color: $color-on-surface;
   border-color: $color-accent;
 
   &:hover {
@@ -71,7 +71,7 @@
 
 .danger {
   background-color: $color-danger;
-  color: #fff;
+  color: $color-on-surface;
   border-color: $color-danger;
 
   &:hover {
@@ -82,7 +82,7 @@
 
 .fire {
   background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
-  color: #fff;
+  color: $color-on-surface;
   border-color: transparent;
   border-radius: $radius-full;
   font-family: $font-heading;

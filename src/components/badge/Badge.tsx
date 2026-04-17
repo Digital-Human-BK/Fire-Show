@@ -1,24 +1,12 @@
 import type { ReactNode } from "react";
-import classes from "./Badge.module.scss";
-
-type Variant = "accent" | "secondary" | "danger" | "neutral";
+import styles from "./Badge.module.scss";
+import { cn } from "@/utils/styles";
 
 type BadgeProps = {
-  variant?: Variant;
+  variant?: "accent" | "secondary" | "danger" | "neutral";
   children: ReactNode;
 };
 
-const variantClass: Record<Variant, string> = {
-  accent: classes.accent,
-  secondary: classes.secondary,
-  danger: classes.danger,
-  neutral: classes.neutral,
-};
-
 export const Badge = ({ variant = "neutral", children }: BadgeProps) => {
-  return (
-    <span className={`${classes.badge} ${variantClass[variant]}`}>
-      {children}
-    </span>
-  );
+  return <span className={cn(styles.badge, styles[variant])}>{children}</span>;
 };
