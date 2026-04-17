@@ -3,8 +3,18 @@ import styles from "./Navbar.module.scss";
 import { cn } from "@/utils/styles";
 import { AnimatedButton } from "../animated-button/AnimatedButton";
 
+const navSections = [
+  { id: "performances", label: "Performances" },
+  { id: "about", label: "About" },
+  { id: "gallery", label: "Gallery" },
+  { id: "contact", label: "Contact" },
+];
+
+const allSections = ["hero", ...navSections.map((section) => section.id)];
+
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrollingToSection, setIsScrollingToSection] = useState(false);
   const [activeSection, setActiveSection] = useState(
     window.location.hash || "#hero",
   );
@@ -18,7 +28,6 @@ export const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const sections = ["hero", "gallery", "performances", "about", "contact"];
     const observerOptions = {
       root: null,
       rootMargin: "-50% 0px -50% 0px",
@@ -26,6 +35,9 @@ export const Navbar = () => {
     };
 
     const observer = new IntersectionObserver((entries) => {
+      // Don't update active section if we're programmatically scrolling to a section
+      if (isScrollingToSection) return;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const newHash = `#${entry.target.id}`;
@@ -36,44 +48,51 @@ export const Navbar = () => {
       });
     }, observerOptions);
 
-    sections.forEach((section) => {
+    allSections.forEach((section) => {
       const element = document.getElementById(section);
       if (element) observer.observe(element);
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isScrollingToSection]);
+
+  const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetHash = e.currentTarget.hash;
+
+    // Immediately set active section to clicked link
+    setActiveSection(targetHash);
+    window.history.replaceState(null, "", targetHash);
+
+    // Temporarily disable IntersectionObserver updates
+    setIsScrollingToSection(true);
+
+    // Re-enable after scrolling completes (with some buffer)
+    setTimeout(() => {
+      setIsScrollingToSection(false);
+    }, 1000);
+    // Smooth scroll to section
+    document.getElementById(targetHash.slice(1))?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   return (
     <nav className={cn(styles.nav, isScrolled && styles.scrolled)}>
-      <a href="#hero" className={styles.logo}>
+      <a href="#hero" className={styles.logo} onClick={handleSectionClick}>
         INFERNO
       </a>
       <div className={styles.links}>
-        <a
-          href="#performances"
-          className={cn(activeSection === "#performances" && styles.active)}
-        >
-          Performances
-        </a>
-        <a
-          href="#about"
-          className={cn(activeSection === "#about" && styles.active)}
-        >
-          About
-        </a>
-        <a
-          href="#gallery"
-          className={cn(activeSection === "#gallery" && styles.active)}
-        >
-          Gallery
-        </a>
-        <a
-          href="#contact"
-          className={cn(activeSection === "#contact" && styles.active)}
-        >
-          Contact
-        </a>
+        {navSections.map((section) => (
+          <a
+            key={section.id}
+            href={`#${section.id}`}
+            className={cn(activeSection === `#${section.id}` && styles.active)}
+            onClick={handleSectionClick}
+          >
+            {section.label}
+          </a>
+        ))}
       </div>
       <AnimatedButton size={isScrolled ? "sm" : "md"}>Book Show</AnimatedButton>
     </nav>
