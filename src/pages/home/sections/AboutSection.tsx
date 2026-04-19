@@ -1,10 +1,11 @@
+import { AnimatedCounter } from "@/components/animated-counter/AnimatedCounter";
 import styles from "./AboutSection.module.scss";
 
-const stats = [
-  { value: "15+", label: "Years Exp." },
-  { value: "300+", label: "Events/Year" },
-  { value: "24", label: "Countries" },
-] as const;
+const performanceStats: { value: number; suffix?: string; label: string }[] = [
+  { value: 15, suffix: "+", label: "Years Exp." },
+  { value: 300, suffix: "+", label: "Events/Year" },
+  { value: 24, label: "Countries" },
+];
 
 export const AboutSection = () => {
   return (
@@ -44,13 +45,17 @@ export const AboutSection = () => {
             </p>
           </div>
 
-          <div className={styles.stats}>
-            {stats.map((stat) => (
-              <div key={stat.label} className={styles.stat}>
-                <div className={styles.statValue}>{stat.value}</div>
-                <div className={styles.statLabel}>{stat.label}</div>
-              </div>
-            ))}
+          <div className={styles.stats} aria-label="Performance statistics">
+            {performanceStats.map(({ value, label, suffix }) => {
+              return (
+                <AnimatedCounter
+                  key={label}
+                  targetValue={value}
+                  label={label}
+                  suffix={suffix}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

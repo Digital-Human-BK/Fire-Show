@@ -118,28 +118,6 @@
   margin-top: $space-4;
 }
 
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: $space-1;
-}
-
-.statValue {
-  font-family: $font-heading;
-  font-size: $text-4xl;
-  font-weight: $weight-bold;
-  color: $color-on-surface;
-  line-height: 1;
-}
-
-.statLabel {
-  font-size: $text-xs;
-  text-transform: uppercase;
-  letter-spacing: $tracking-widest;
-  color: $color-outline;
-  font-family: $font-body;
-}
-
 .gradientText {
   @include text-gradient-primary-secondary;
 }
