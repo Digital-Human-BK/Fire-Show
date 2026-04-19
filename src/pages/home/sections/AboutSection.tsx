@@ -3,8 +3,8 @@ import styles from "./AboutSection.module.scss";
 
 const performanceStats: { value: number; suffix?: string; label: string }[] = [
   { value: 15, suffix: "+", label: "Years Exp." },
-  { value: 300, suffix: "+", label: "Events/Year" },
-  { value: 24, label: "Countries" },
+  { value: 50, suffix: "+", label: "Events/Year" },
+  { value: 20, suffix: "+", label: "Locations" },
 ];
 
 export const AboutSection = () => {
@@ -22,7 +22,7 @@ export const AboutSection = () => {
         <div className={styles.content}>
           <div className={styles.eyebrowRow}>
             <span className={styles.eyebrowLine} aria-hidden="true" />
-            <span className={styles.eyebrow}>The Visionary</span>
+            <span className={styles.eyebrow}>About My Fire</span>
           </div>
 
           <h2 className={styles.heading}>
