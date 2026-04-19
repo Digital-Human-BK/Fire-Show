@@ -111,6 +111,24 @@
   }
 }
 
+// Scroll-driven rotation animation
+// Usage: @include scroll-rotate($range-start: '0%', $range-end: '30%');
+@mixin scroll-rotate($range-start: "0%", $range-end: "30%") {
+  animation: scroll-rotate-keyframes linear both;
+  animation-duration: auto;
+  animation-timeline: view();
+  animation-range: entry #{$range-start} cover #{$range-end};
+}
+
+@keyframes scroll-rotate-keyframes {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @mixin text-gradient-primary-secondary($fill-color: transparent) {
   background: linear-gradient(to right, t.$color-primary, t.$color-secondary);
   -webkit-background-clip: text;

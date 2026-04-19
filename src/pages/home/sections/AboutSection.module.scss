@@ -27,7 +27,7 @@
   aspect-ratio: 3 / 4;
   position: relative;
   border-radius: $radius-lg;
-  overflow: hidden;
+  overflow: clip;
   box-shadow: 0 24px 64px rgba($color-primary, 0.1);
   flex-shrink: 0;
 
@@ -40,6 +40,26 @@
     height: 100%;
     object-fit: cover;
     border-radius: $radius-lg;
+  }
+
+  img.fireCircle {
+    position: absolute;
+    inset: 0;
+    object-fit: contain;
+    pointer-events: none;
+    animation: fire-circle-rotate linear both;
+    animation-duration: auto;
+    animation-timeline: view();
+    animation-range: entry 20% cover 100%;
+  }
+}
+
+@keyframes fire-circle-rotate {
+  from {
+    transform: scale(1.5) rotate(0deg);
+  }
+  to {
+    transform: scale(1.5) rotate(720deg);
   }
 }
 
