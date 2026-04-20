@@ -47,11 +47,11 @@
 
 .heading {
   font-family: $font-heading;
-  font-size: $text-5xl;
+  font-size: $text-4xl;
   font-weight: $weight-bold;
   letter-spacing: $tracking-tight;
   color: $color-on-surface;
-  line-height: 0.9;
+  line-height: 1;
   margin-bottom: $space-12;
 
   @media (min-width: $bp-md) {
@@ -110,51 +110,54 @@
   border-radius: $radius-full;
   cursor: pointer;
   box-shadow: $shadow-md;
-  transition:
-    width $transition-slow,
-    box-shadow $transition-slow;
 
-  &:hover {
-    width: 200px;
-    box-shadow: $shadow-lg;
-  }
+  @media (min-width: $bp-md) {
+    transition:
+      width $transition-slow,
+      box-shadow $transition-slow;
 
-  &:nth-child(1):hover .socialIcon {
-    background: #1877f2;
-  }
-  &:nth-child(2):hover .socialIcon {
-    background: radial-gradient(
-      circle at 30% 107%,
-      #fdf497 0%,
-      #fdf497 5%,
-      #fd5949 45%,
-      #d6249f 60%,
-      #285aeb 90%
-    );
-  }
-  &:nth-child(3):hover .socialIcon {
-    background: #000;
-  }
-  &:nth-child(4):hover .socialIcon {
-    background: #ff0033;
-  }
+    &:hover {
+      width: 200px;
+      box-shadow: $shadow-lg;
+    }
 
-  &:hover .socialIcon {
-    color: $color-on-surface;
-  }
+    &:nth-child(1):hover .socialIcon {
+      background: #1877f2;
+    }
+    &:nth-child(2):hover .socialIcon {
+      background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+      );
+    }
+    &:nth-child(3):hover .socialIcon {
+      background: #000;
+    }
+    &:nth-child(4):hover .socialIcon {
+      background: #ff0033;
+    }
 
-  // Platform brand colours on label text
-  &:nth-child(1) span {
-    color: #4267b2;
-  }
-  &:nth-child(2) span {
-    color: #e1306c;
-  }
-  &:nth-child(3) span {
-    color: #fff;
-  }
-  &:nth-child(4) span {
-    color: #ff0033;
+    &:hover .socialIcon {
+      color: $color-on-surface;
+    }
+
+    // Platform brand colors on label text
+    &:nth-child(1) span {
+      color: #4267b2;
+    }
+    &:nth-child(2) span {
+      color: #e1306c;
+    }
+    &:nth-child(3) span {
+      color: #fff;
+    }
+    &:nth-child(4) span {
+      color: #ff0033;
+    }
   }
 
   span {
@@ -164,7 +167,10 @@
     line-height: 60px;
     margin-left: $space-3;
     white-space: nowrap;
-    transition: all $transition-slow;
+
+    @media (min-width: $bp-md) {
+      transition: all $transition-slow;
+    }
   }
 }
 

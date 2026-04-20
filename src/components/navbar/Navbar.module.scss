@@ -12,8 +12,8 @@
   margin: 0 auto;
   border-radius: $radius-full;
   background: rgba($color-surface-container, 0.6);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 50px -12px rgba($color-primary, 0.15);
   top: 3rem;
@@ -41,10 +41,14 @@
   display: none;
   align-items: center;
   line-height: 1;
-  gap: $space-8;
 
   @media (min-width: $bp-md) {
+    gap: $space-4;
     display: flex;
+  }
+
+  @media (min-width: $bp-lg) {
+    gap: $space-8;
   }
 
   a {

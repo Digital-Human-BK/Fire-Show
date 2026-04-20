@@ -13,14 +13,8 @@ export const AboutSection = () => {
       <div className={styles.container}>
         <div className={styles.portrait}>
           <img
-            // src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm7t2X_uN4BmB9HXUciEmf5Zlf96StwLo2anFIGWt1jFz_z7Aqd_d5dQVgPOLNd8qZscJ15sMl6tGCZ4NqC4y67dpTRfKDaVhLB92EBzRvXmQZqwutpRsB1BjLw6ZrukPstEhax7BkIkKlz0LfC3d7qEgTsXgm6Mnu2nuzZSz-dK3rjeoEPlQl-3IcGZADUSYtgP-RXd6C0rLjy3LlKWWcO0LQrdts8b10gUF9zCXKBpnD3PItrf7urdsiOot_H_KRb7gVXD_FmHcm"
-            src="/images/naseto.png"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm7t2X_uN4BmB9HXUciEmf5Zlf96StwLo2anFIGWt1jFz_z7Aqd_d5dQVgPOLNd8qZscJ15sMl6tGCZ4NqC4y67dpTRfKDaVhLB92EBzRvXmQZqwutpRsB1BjLw6ZrukPstEhax7BkIkKlz0LfC3d7qEgTsXgm6Mnu2nuzZSz-dK3rjeoEPlQl-3IcGZADUSYtgP-RXd6C0rLjy3LlKWWcO0LQrdts8b10gUF9zCXKBpnD3PItrf7urdsiOot_H_KRb7gVXD_FmHcm"
             alt="Cinematic portrait of a male fire artist spinning multiple flaming staffs with sparks flying against a pitch black night background"
-          />
-          <img
-            src="/images/fire-circle.png"
-            alt="Decorative fire circle"
-            className={styles.fireCircle}
           />
           <div className={styles.portraitOverlay} />
         </div>
