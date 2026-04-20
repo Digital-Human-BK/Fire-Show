@@ -3,14 +3,14 @@ import { AboutSection } from "./sections/AboutSection";
 import { ContactSection } from "./sections/ContactSection";
 import { GallerySection } from "./sections/GallerySection";
 import { HeroSection } from "./sections/HeroSection";
-import { ServicesCarousel } from "./sections/ServicesCarousel";
+import { PerformancesSection } from "./sections/PerformancesSection";
 
 export const Home = () => {
   return (
     <>
       <Navbar />
       <HeroSection />
-      <ServicesCarousel />
+      <PerformancesSection />
       <AboutSection />
       <GallerySection />
       <ContactSection />

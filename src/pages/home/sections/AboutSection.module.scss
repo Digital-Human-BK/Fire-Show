@@ -90,7 +90,7 @@
   letter-spacing: $tracking-tight;
   @include scroll-reveal("30%", "50%");
 
-  @media (min-width: $bp-md) {
+  @media (min-width: $bp-lg) {
     font-size: $text-7xl;
   }
 }

@@ -33,7 +33,7 @@ export const GallerySection = () => {
   return (
     <section className={styles.section} id="gallery">
       <div className={styles.header}>
-        <h2 className={styles.heading}>VISUAL ARCHIVE</h2>
+        <h2 className={styles.heading}>FIRE PRINTS</h2>
         <div className={styles.headingUnderline} />
       </div>
 
