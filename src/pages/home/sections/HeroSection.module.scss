@@ -79,11 +79,12 @@
   display: grid;
   grid-template-columns: 1fr;
   align-items: flex-end;
-  gap: $space-12;
+  gap: $space-6;
 
   @media (min-width: $bp-md) {
+    gap: $space-12;
     grid-template-columns: 1fr 1fr;
-    padding: 0 $space-16 5rem;
+    padding: 0 $space-16 6rem;
   }
 }
 
@@ -149,15 +150,7 @@
 }
 
 .phoneLabel {
-  color: $color-primary;
-  font-family: $font-body;
-  text-transform: uppercase;
-  letter-spacing: $tracking-widest;
-  font-size: $text-xs;
-
-  @media (min-width: $bp-md) {
-    margin-bottom: $space-1;
-  }
+  @include eyebrow;
 }
 
 .phone {

@@ -65,6 +65,15 @@
   white-space: nowrap;
 }
 
+@mixin eyebrow {
+  color: t.$color-primary;
+  font-family: t.$font-body;
+  text-transform: uppercase;
+  font-weight: t.$weight-semibold;
+  letter-spacing: t.$tracking-widest;
+  font-size: t.$text-xs;
+}
+
 @mixin visually-hidden {
   position: absolute;
   width: 1px;
@@ -98,6 +107,15 @@
   animation-duration: auto;
   animation-timeline: view();
   animation-range: entry #{$range-start} cover #{$range-end};
+}
+
+@mixin eyebrow {
+  color: t.$color-primary;
+  font-family: t.$font-body;
+  text-transform: uppercase;
+  font-weight: t.$weight-medium;
+  letter-spacing: t.$tracking-widest;
+  font-size: t.$text-xs;
 }
 
 @keyframes scroll-reveal-keyframes {

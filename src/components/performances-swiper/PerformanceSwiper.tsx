@@ -7,8 +7,9 @@ import "swiper/css";
 type PerformanceSwiperProps = {
   data: {
     title: string;
-    subtitle: string;
+    description: string;
     price: string;
+    priceSubtitle: string;
     image: string;
     alt: string;
   }[];
@@ -47,11 +48,20 @@ export const PerformanceSwiper = ({
               <div className={styles.cardGradient} />
               <div className={styles.cardInfo}>
                 <div className={styles.cardInfoRow}>
-                  <div>
+                  <div className={styles.cardInfoLeft}>
                     <h3 className={styles.cardTitle}>{service.title}</h3>
-                    <p className={styles.cardSubtitle}>{service.subtitle}</p>
+                    <div className={styles.descriptionWrapper}>
+                      <p className={styles.cardDescription}>
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
-                  <p className={styles.cardPrice}>{service.price}</p>
+                  <div className={styles.priceWrapper}>
+                    <p className={styles.cardPriceSubtitle}>
+                      {service.priceSubtitle}
+                    </p>
+                    <p className={styles.cardPrice}>{service.price}</p>
+                  </div>
                 </div>
               </div>
             </div>

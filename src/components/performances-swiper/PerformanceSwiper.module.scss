@@ -60,35 +60,91 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: $space-8;
+  padding: $space-4;
+
+  @media (min-width: 768px) {
+    padding: $space-8;
+  }
 }
 
 .cardInfoRow {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: $space-4;
+}
+
+.cardInfoLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.descriptionWrapper {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 600ms;
+  }
+}
+
+.card:hover .descriptionWrapper {
+  grid-template-rows: 1fr;
 }
 
 .cardTitle {
   font-family: $font-heading;
-  font-size: $text-2xl;
+  font-size: $text-xl;
   font-weight: $weight-bold;
   color: $color-on-surface;
-  margin-bottom: $space-1;
-  line-height: $leading-tight;
+  line-height: 1;
+
+  @media (min-width: 768px) {
+    font-size: $text-2xl;
+  }
 }
 
-.cardSubtitle {
+.cardDescription {
+  overflow: hidden;
   color: $color-on-surface-variant;
   font-size: $text-sm;
   font-family: $font-body;
-  text-transform: uppercase;
-  letter-spacing: $tracking-widest;
+  opacity: 0;
+  transition: opacity 400ms 200ms ease-in;
+}
+
+.card:hover .cardDescription {
+  opacity: 1;
 }
 
 .cardPrice {
-  font-family: $font-heading;
-  font-size: $text-xl;
+  font-family: $font-body;
+  font-size: $text-base;
   font-weight: $weight-bold;
+  line-height: 1;
   color: $color-primary;
+  white-space: nowrap;
+
+  @media (min-width: 768px) {
+    font-size: $text-xl;
+  }
+}
+
+.priceWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 0;
+}
+
+.cardPriceSubtitle {
+  font-family: $font-body;
+  font-size: $text-2xs;
+  color: $color-primary;
+
+  @media (min-width: 768px) {
+    font-size: $text-xs;
+  }
 }
