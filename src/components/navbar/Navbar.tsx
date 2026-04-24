@@ -80,7 +80,7 @@ export const Navbar = () => {
   return (
     <nav className={cn(styles.nav, isScrolled && styles.scrolled)}>
       <a href="#hero" className={styles.logo} onClick={handleSectionClick}>
-        INFERNO
+        ZAHARIEV
       </a>
       <div className={styles.links}>
         {navSections.map((section) => (

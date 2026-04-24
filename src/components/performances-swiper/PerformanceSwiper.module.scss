@@ -27,7 +27,6 @@
 
   &:hover .cardImage {
     filter: grayscale(0);
-    // transform: scale(1.2);
   }
 }
 
@@ -42,7 +41,6 @@
   object-fit: cover;
   filter: grayscale(100%);
   transition: filter $transition-slow;
-  // transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .cardGradient {

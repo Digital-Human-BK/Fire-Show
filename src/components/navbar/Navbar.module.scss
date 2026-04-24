@@ -38,7 +38,7 @@
   font-weight: $weight-bold;
   line-height: 1;
   letter-spacing: $tracking-tight;
-  color: $color-primary;
+  color: $color-primary-dim;
 }
 
 .links {
@@ -64,11 +64,11 @@
     transition: color 0.2s;
 
     &:hover {
-      color: $color-primary-dim;
+      color: $color-primary;
     }
 
     &.active {
-      color: $color-primary;
+      color: $color-primary-dim;
     }
   }
 }

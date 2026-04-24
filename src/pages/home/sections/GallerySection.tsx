@@ -1,5 +1,6 @@
 import Maximize from "@/assets/icons/maximize.svg?react";
 import { cn } from "@/utils/styles";
+import { Link } from "react-router";
 import styles from "./GallerySection.module.scss";
 
 const galleryImages = [
@@ -32,26 +33,33 @@ const galleryImages = [
 export const GallerySection = () => {
   return (
     <section className={styles.section} id="gallery">
-      <div className={styles.header}>
-        <h2 className={styles.heading}>FIRE PRINTS</h2>
-        <div className={styles.headingUnderline} />
-      </div>
-
-      <div className={styles.grid}>
-        {galleryImages.map((img) => (
-          <div
-            key={img.id}
-            className={cn(
-              styles.cell,
-              styles[img.cellClass as keyof typeof styles],
-            )}
-          >
-            <img src={img.src} alt={img.alt} />
-            <div className={styles.overlay}>
-              <Maximize width={40} height={40} />
-            </div>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div>
+            <h2 className={styles.heading}>GALLERY</h2>
+            <div className={styles.headingUnderline} />
           </div>
-        ))}
+          <Link to="/" className={styles.viewAllLink}>
+            View all
+          </Link>
+        </div>
+
+        <div className={styles.grid}>
+          {galleryImages.map((img) => (
+            <div
+              key={img.id}
+              className={cn(
+                styles.cell,
+                styles[img.cellClass as keyof typeof styles],
+              )}
+            >
+              <img src={img.src} alt={img.alt} />
+              <div className={styles.overlay}>
+                <Maximize width={40} height={40} />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
