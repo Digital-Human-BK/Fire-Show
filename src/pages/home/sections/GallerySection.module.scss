@@ -94,11 +94,15 @@
     pointer-events: none;
     user-select: none;
     -webkit-user-drag: none;
-    transition: transform 0.4s ease;
+    transition:
+      transform 0.4s ease,
+      filter 0.3s ease;
+    filter: grayscale(100%);
   }
 
   &:hover img {
     transform: scale(1.05);
+    filter: grayscale(0);
   }
 
   &:hover .caption {

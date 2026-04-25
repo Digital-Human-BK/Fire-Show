@@ -1,5 +1,6 @@
 import GalleryHorizontal from "@/assets/icons/gallery-horizontal.svg?react";
 import { MinimalNavbar } from "@/components/minimal-navbar/MinimalNavbar";
+import { galleryImages } from "@/utils/constants";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { useEffect, useRef } from "react";
@@ -29,30 +30,26 @@ const ITEMS = [
   "Zenith Flow",
 ];
 
-const IMAGE_URLS = [
-  "https://cdn.cosmos.so/0f164449-f65e-4584-9d62-a9b3e1f4a90a?format=jpeg",
-  "https://cdn.cosmos.so/74ccf6cc-7672-4deb-ba13-1727b7dc6146?format=jpeg",
-  "https://cdn.cosmos.so/2f49a117-05e7-4ae9-9e95-b9917f970adb?format=jpeg",
-  "https://cdn.cosmos.so/7b5340f5-b4dc-4c08-8495-c507fa81480b?format=jpeg",
-  "https://cdn.cosmos.so/f733585a-081e-48e7-a30e-e636446f2168?format=jpeg",
-  "https://cdn.cosmos.so/47caf8a0-f456-41c5-98ea-6d0476315731?format=jpeg",
-  "https://cdn.cosmos.so/f99f8445-6a19-4a9a-9de3-ac382acc1a3f?format=jpeg",
-];
-
 const COLUMNS = 4;
 
-const SETTINGS = {
+const DESKTOP_SETTINGS = {
   baseWidth: 400,
   smallHeight: 330,
   largeHeight: 500,
   itemGap: 65,
-  expandedScale: 0.4,
   dragEase: 0.075,
   momentumFactor: 200,
   bufferZone: 3,
   overlayOpacity: 0.9,
   overlayEaseDuration: 0.8,
   zoomDuration: 0.6,
+} as const;
+
+const MOBILE_SETTINGS = {
+  baseWidth: 220,
+  smallHeight: 180,
+  largeHeight: 270,
+  itemGap: 18,
 } as const;
 
 export const Gallery = () => {
@@ -79,6 +76,11 @@ export const Gallery = () => {
 
     gsap.registerPlugin(CustomEase);
     CustomEase.create("hop", "0.9, 0, 0.1, 1");
+
+    const isMobile = window.innerWidth < 768;
+    const SETTINGS = isMobile
+      ? { ...DESKTOP_SETTINGS, ...MOBILE_SETTINGS }
+      : DESKTOP_SETTINGS;
 
     const itemSizes = [
       { width: SETTINGS.baseWidth, height: SETTINGS.smallHeight },
@@ -179,8 +181,8 @@ export const Gallery = () => {
     function animateOverlayIn() {
       if (overlayAnimation) overlayAnimation.kill();
       overlayAnimation = gsap.to(overlay, {
-        opacity: SETTINGS.overlayOpacity,
-        duration: SETTINGS.overlayEaseDuration,
+        opacity: DESKTOP_SETTINGS.overlayOpacity,
+        duration: DESKTOP_SETTINGS.overlayEaseDuration,
         ease: "power2.inOut",
         overwrite: true,
       });
@@ -190,13 +192,13 @@ export const Gallery = () => {
       if (overlayAnimation) overlayAnimation.kill();
       overlayAnimation = gsap.to(overlay, {
         opacity: 0,
-        duration: SETTINGS.overlayEaseDuration,
+        duration: DESKTOP_SETTINGS.overlayEaseDuration,
         ease: "power2.inOut",
       });
     }
 
     function updateVisibleItems() {
-      const buffer = SETTINGS.bufferZone;
+      const buffer = DESKTOP_SETTINGS.bufferZone;
       const viewWidth = window.innerWidth * (1 + buffer);
       const viewHeight = window.innerHeight * (1 + buffer);
       const startCol = Math.floor((-currentX - viewWidth / 2) / cellWidth);
@@ -233,7 +235,7 @@ export const Gallery = () => {
           const imageContainer = document.createElement("div");
           imageContainer.className = "gallery-item-image-container";
           const img = document.createElement("img");
-          img.src = IMAGE_URLS[itemNum % IMAGE_URLS.length];
+          img.src = galleryImages[itemNum % galleryImages.length];
           img.alt = ITEMS[itemNum];
           img.draggable = false;
           imageContainer.appendChild(img);
@@ -382,15 +384,22 @@ export const Gallery = () => {
         if (el !== activeItem) {
           gsap.to(el, {
             opacity: 0,
-            duration: SETTINGS.overlayEaseDuration,
+            duration: DESKTOP_SETTINGS.overlayEaseDuration,
             ease: "power2.inOut",
           });
         }
       });
 
-      const targetWidth = window.innerWidth * SETTINGS.expandedScale;
+      // Fit the expanded item to as much of the viewport as possible
+      const maxW = window.innerWidth * 0.92;
+      const maxH = window.innerHeight * 0.88;
       const aspectRatio = itemHeight / itemWidth;
-      const targetHeight = targetWidth * aspectRatio;
+      let targetWidth = maxW;
+      let targetHeight = targetWidth * aspectRatio;
+      if (targetHeight > maxH) {
+        targetHeight = maxH;
+        targetWidth = targetHeight / aspectRatio;
+      }
 
       gsap.delayedCall(0.5, animateTitleIn);
       gsap.fromTo(
@@ -406,7 +415,7 @@ export const Gallery = () => {
           height: targetHeight,
           x: 0,
           y: 0,
-          duration: SETTINGS.zoomDuration,
+          duration: DESKTOP_SETTINGS.zoomDuration,
           ease: "hop",
         },
       );
@@ -422,7 +431,7 @@ export const Gallery = () => {
         if (el.id !== `gi-${activeItemId}`) {
           gsap.to(el, {
             opacity: 1,
-            duration: SETTINGS.overlayEaseDuration,
+            duration: DESKTOP_SETTINGS.overlayEaseDuration,
             delay: 0.3,
             ease: "power2.inOut",
           });
@@ -457,7 +466,7 @@ export const Gallery = () => {
         height: originalHeight,
         x: originalRect.left + originalWidth / 2 - window.innerWidth / 2,
         y: originalRect.top + originalHeight / 2 - window.innerHeight / 2,
-        duration: SETTINGS.zoomDuration,
+        duration: DESKTOP_SETTINGS.zoomDuration,
         ease: "hop",
         onComplete: () => {
           if (originalItem) {
@@ -543,8 +552,8 @@ export const Gallery = () => {
 
     function animate() {
       if (canDrag) {
-        currentX += (targetX - currentX) * SETTINGS.dragEase;
-        currentY += (targetY - currentY) * SETTINGS.dragEase;
+        currentX += (targetX - currentX) * DESKTOP_SETTINGS.dragEase;
+        currentY += (targetY - currentY) * DESKTOP_SETTINGS.dragEase;
         canvas.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
         const now = Date.now();
@@ -595,8 +604,8 @@ export const Gallery = () => {
       if (canDrag) {
         container.style.cursor = "grab";
         if (Math.abs(dragVelocityX) > 0.1 || Math.abs(dragVelocityY) > 0.1) {
-          targetX += dragVelocityX * SETTINGS.momentumFactor;
-          targetY += dragVelocityY * SETTINGS.momentumFactor;
+          targetX += dragVelocityX * DESKTOP_SETTINGS.momentumFactor;
+          targetY += dragVelocityY * DESKTOP_SETTINGS.momentumFactor;
         }
       }
     };
@@ -633,11 +642,18 @@ export const Gallery = () => {
 
     const onResize = () => {
       if (isExpanded && expandedItem) {
-        const targetWidth = window.innerWidth * SETTINGS.expandedScale;
+        const maxW = window.innerWidth * 0.92;
+        const maxH = window.innerHeight * 0.88;
         const aspectRatio = originalPosition!.height / originalPosition!.width;
+        let rWidth = maxW;
+        let rHeight = rWidth * aspectRatio;
+        if (rHeight > maxH) {
+          rHeight = maxH;
+          rWidth = rHeight / aspectRatio;
+        }
         gsap.to(expandedItem, {
-          width: targetWidth,
-          height: targetWidth * aspectRatio,
+          width: rWidth,
+          height: rHeight,
           duration: 0.3,
           ease: "power2.out",
         });
@@ -697,11 +713,11 @@ export const Gallery = () => {
             </span>
           </span>
         </div>
-        <div className={styles.pageVignetteContainer} aria-hidden="true">
+        {/* <div className={styles.pageVignetteContainer} aria-hidden="true">
           <div className={styles.pageVignette} />
           <div className={styles.pageVignetteStrong} />
           <div className={styles.pageVignetteExtreme} />
-        </div>
+        </div> */}
       </main>
     </>
   );

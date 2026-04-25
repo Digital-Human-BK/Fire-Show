@@ -1,0 +1,15 @@
+export const galleryImages = [
+  // "https://cdn.cosmos.so/0f164449-f65e-4584-9d62-a9b3e1f4a90a?format=jpeg",
+  // "https://cdn.cosmos.so/74ccf6cc-7672-4deb-ba13-1727b7dc6146?format=jpeg",
+  // "https://cdn.cosmos.so/2f49a117-05e7-4ae9-9e95-b9917f970adb?format=jpeg",
+  // "https://cdn.cosmos.so/7b5340f5-b4dc-4c08-8495-c507fa81480b?format=jpeg",
+  // "https://cdn.cosmos.so/f733585a-081e-48e7-a30e-e636446f2168?format=jpeg",
+  // "https://cdn.cosmos.so/47caf8a0-f456-41c5-98ea-6d0476315731?format=jpeg",
+  // "https://cdn.cosmos.so/f99f8445-6a19-4a9a-9de3-ac382acc1a3f?format=jpeg",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAKGir0ORb9tgZj7-QFlsNVGi2tw_fYZMY1P0wAY1d-KBITcaCm1pn3c0KyyKWXtcNuisEe0U0HkfWN8Jk8MteX068Q8hDTrmU66-OI1Q_7krT3u47fJQYRQrhpEyfUsNBn2mvgHGTIt-d0ZnHC_xlFopmqiTWAS2HPRF3DUO51kR50PIs6i4oJjpJcyah60vbgU-XTTWsEGJPdF7DhcBClVAl8p3AaqFuwh9o8lHaEgEFhJrtImS7Eo7OR0t0IfjiAmEgF_fMvb7Zp",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAHCWBtb-QNWuAyuZWLkUrcp87mmjCO6Q73OzDXgPfIC9K6G37XscTE-_almpRI4k4TFPGnMnsDwcNg_ObuzS0lKvzKSMjfOSjKSATiUjFDBbjoyBchTWxnm63kRIk8VaI_KeYLK-jDxKiTeEFEGlRoTlefR8jRRNow7j3YATKifdXs7JVhPPevU7uuUYpBuhpGfyvDc2mu73wPJOtxr9RTmRtfIk0dU7aSU04xE7_MOMUTdyqvtKjqk4itZre9MqJTon2w3aYMCtOM",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBASvl82pqj9HIVJP-TYiyKEpXjUki3R4eBboeQlzwx45A-vxoWoc1ZOZ0Ea3-ov05vbNsUcWHWRMJySa9YE4rVOswa5dOTH7FhFvvmM3Z6H4G0G1NxgOkz1CsAkxzROqSfWy6KUeqIm-kSDEt4R4fA3C8VJaQbHxOj15vK0Ns5OZq3R7rPYxV3bXgiIT9mSJN6vjyqDdQaieLIy_a71qolm4_XCkegWRL54Dpo5yCCZZLfNfsGLLghoWoKXX7Ji1pmh75vBQVrkacA",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAKGir0ORb9tgZj7-QFlsNVGi2tw_fYZMY1P0wAY1d-KBITcaCm1pn3c0KyyKWXtcNuisEe0U0HkfWN8Jk8MteX068Q8hDTrmU66-OI1Q_7krT3u47fJQYRQrhpEyfUsNBn2mvgHGTIt-d0ZnHC_xlFopmqiTWAS2HPRF3DUO51kR50PIs6i4oJjpJcyah60vbgU-XTTWsEGJPdF7DhcBClVAl8p3AaqFuwh9o8lHaEgEFhJrtImS7Eo7OR0t0IfjiAmEgF_fMvb7Zp",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAHCWBtb-QNWuAyuZWLkUrcp87mmjCO6Q73OzDXgPfIC9K6G37XscTE-_almpRI4k4TFPGnMnsDwcNg_ObuzS0lKvzKSMjfOSjKSATiUjFDBbjoyBchTWxnm63kRIk8VaI_KeYLK-jDxKiTeEFEGlRoTlefR8jRRNow7j3YATKifdXs7JVhPPevU7uuUYpBuhpGfyvDc2mu73wPJOtxr9RTmRtfIk0dU7aSU04xE7_MOMUTdyqvtKjqk4itZre9MqJTon2w3aYMCtOM",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBASvl82pqj9HIVJP-TYiyKEpXjUki3R4eBboeQlzwx45A-vxoWoc1ZOZ0Ea3-ov05vbNsUcWHWRMJySa9YE4rVOswa5dOTH7FhFvvmM3Z6H4G0G1NxgOkz1CsAkxzROqSfWy6KUeqIm-kSDEt4R4fA3C8VJaQbHxOj15vK0Ns5OZq3R7rPYxV3bXgiIT9mSJN6vjyqDdQaieLIy_a71qolm4_XCkegWRL54Dpo5yCCZZLfNfsGLLghoWoKXX7Ji1pmh75vBQVrkacA",
+];

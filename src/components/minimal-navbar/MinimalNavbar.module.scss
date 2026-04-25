@@ -12,10 +12,10 @@
   max-width: 80rem;
   margin: 0 auto;
   border-radius: $radius-full;
-  background: rgba($color-white, 0.2);
+  background: rgba($color-surface-container, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 50px -12px rgba($color-primary, 0.15);
 }
 
@@ -25,5 +25,37 @@
   font-weight: $weight-bold;
   line-height: 1;
   letter-spacing: $tracking-tight;
-  color: $color-accent;
+  color: $color-primary-dim;
+}
+
+.links {
+  display: none;
+  align-items: center;
+  line-height: 1;
+
+  @media (min-width: $bp-md) {
+    gap: $space-4;
+    display: flex;
+  }
+
+  @media (min-width: $bp-lg) {
+    gap: $space-8;
+  }
+
+  a {
+    font-family: $font-heading;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    font-size: $text-sm;
+    color: $color-on-surface-variant;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &.active {
+      color: $color-primary-dim;
+    }
+  }
 }
