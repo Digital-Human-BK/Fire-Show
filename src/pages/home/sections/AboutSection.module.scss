@@ -3,7 +3,7 @@
 .section {
   position: relative;
   padding: $space-24 0;
-  background-color: $color-surface;
+  background-color: $color-black;
   overflow: clip;
 }
 
@@ -27,7 +27,6 @@
   aspect-ratio: 3 / 4;
   position: relative;
   overflow: clip;
-  box-shadow: 0 24px 64px rgba($color-primary, 0.1);
   flex-shrink: 0;
 
   @media (min-width: $bp-md) {
@@ -72,7 +71,7 @@
 }
 
 .eyebrow {
-  @include eyebrow;
+  @include section-title;
 }
 
 .heading {
@@ -115,5 +114,5 @@
 }
 
 .gradientText {
-  @include text-gradient-primary-secondary;
+  @include text-gradient-primary-accent;
 }

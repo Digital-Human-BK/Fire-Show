@@ -1,31 +1,31 @@
+@use "@/styles/_tokens" as *;
 // ============================================================
 // Mixins — @use this file in component modules
 // ============================================================
-@use "tokens" as t;
 
 @mixin respond-to($bp) {
   @if $bp == xs {
-    @media (min-width: t.$bp-xs) {
+    @media (min-width: $bp-xs) {
       @content;
     }
   } @else if $bp == sm {
-    @media (min-width: t.$bp-sm) {
+    @media (min-width: $bp-sm) {
       @content;
     }
   } @else if $bp == md {
-    @media (min-width: t.$bp-md) {
+    @media (min-width: $bp-md) {
       @content;
     }
   } @else if $bp == lg {
-    @media (min-width: t.$bp-lg) {
+    @media (min-width: $bp-lg) {
       @content;
     }
   } @else if $bp == xl {
-    @media (min-width: t.$bp-xl) {
+    @media (min-width: $bp-xl) {
       @content;
     }
   } @else if $bp == 2xl {
-    @media (min-width: t.$bp-2xl) {
+    @media (min-width: $bp-2xl) {
       @content;
     }
   }
@@ -33,27 +33,27 @@
 
 @mixin respond-below($bp) {
   @if $bp == xs {
-    @media (max-width: #{t.$bp-xs  - 1px}) {
+    @media (max-width: #{$bp-xs  - 1px}) {
       @content;
     }
   } @else if $bp == sm {
-    @media (max-width: #{t.$bp-sm  - 1px}) {
+    @media (max-width: #{$bp-sm  - 1px}) {
       @content;
     }
   } @else if $bp == md {
-    @media (max-width: #{t.$bp-md  - 1px}) {
+    @media (max-width: #{$bp-md  - 1px}) {
       @content;
     }
   } @else if $bp == lg {
-    @media (max-width: #{t.$bp-lg  - 1px}) {
+    @media (max-width: #{$bp-lg  - 1px}) {
       @content;
     }
   } @else if $bp == xl {
-    @media (max-width: #{t.$bp-xl  - 1px}) {
+    @media (max-width: #{$bp-xl  - 1px}) {
       @content;
     }
   } @else if $bp == 2xl {
-    @media (max-width: #{t.$bp-2xl - 1px}) {
+    @media (max-width: #{$bp-2xl - 1px}) {
       @content;
     }
   }
@@ -65,13 +65,13 @@
   white-space: nowrap;
 }
 
-@mixin eyebrow {
-  color: t.$color-primary;
-  font-family: t.$font-body;
+@mixin section-title($size: $text-sm, $font: $font-body) {
+  color: $color-primary;
+  font-family: $font;
   text-transform: uppercase;
-  font-weight: t.$weight-semibold;
-  letter-spacing: t.$tracking-widest;
-  font-size: t.$text-xs;
+  font-weight: $weight-medium;
+  letter-spacing: $tracking-widest;
+  font-size: $size;
 }
 
 @mixin visually-hidden {
@@ -88,16 +88,9 @@
 
 @mixin focus-ring {
   &:focus-visible {
-    outline: 2px solid t.$color-accent;
+    outline: 2px solid $color-accent;
     outline-offset: 3px;
   }
-}
-
-@mixin text-gradient-primary-accent($fill-color: transparent) {
-  background: linear-gradient(to right, t.$color-primary, t.$color-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: $fill-color;
-  background-clip: text;
 }
 
 // Scroll-driven reveal animation
@@ -107,15 +100,6 @@
   animation-duration: auto;
   animation-timeline: view();
   animation-range: entry #{$range-start} cover #{$range-end};
-}
-
-@mixin eyebrow {
-  color: t.$color-primary;
-  font-family: t.$font-body;
-  text-transform: uppercase;
-  font-weight: t.$weight-medium;
-  letter-spacing: t.$tracking-widest;
-  font-size: t.$text-xs;
 }
 
 @keyframes scroll-reveal-keyframes {
@@ -148,7 +132,14 @@
 }
 
 @mixin text-gradient-primary-secondary($fill-color: transparent) {
-  background: linear-gradient(to right, t.$color-primary, t.$color-secondary);
+  background: linear-gradient(to right, $color-primary, $color-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: $fill-color;
+  background-clip: text;
+}
+
+@mixin text-gradient-primary-accent($fill-color: transparent) {
+  background: linear-gradient(to right, $color-primary, $color-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: $fill-color;
   background-clip: text;

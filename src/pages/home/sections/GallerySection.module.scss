@@ -1,3 +1,5 @@
+@use "@/styles/_mixins" as *;
+
 .section {
   padding: $space-24 $space-8;
   background-color: $color-black;
@@ -14,31 +16,11 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   margin-bottom: $space-8;
 }
 
 .heading {
-  font-family: $font-heading;
-  font-size: $text-4xl;
-  font-weight: $weight-bold;
-  color: #ffffff;
-  letter-spacing: $tracking-tight;
-  line-height: $leading-tight;
-
-  @media (min-width: $bp-md) {
-    font-size: $text-5xl;
-  }
-}
-
-.headingUnderline {
-  width: 6rem;
-  height: 4px;
-  background-color: $color-primary;
-  margin-top: $space-4;
-  border-radius: $radius-full;
+  @include section-title;
 }
 
 .viewAllLink {
@@ -80,6 +62,8 @@
   overflow: hidden;
   background-color: #000000;
   aspect-ratio: 3 / 4;
+  text-decoration: none;
+  display: block;
 
   @media (min-width: $bp-lg) {
     aspect-ratio: unset;
@@ -110,6 +94,45 @@
   }
 }
 
+.viewLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: $font-heading;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $color-white;
+  text-transform: uppercase;
+  letter-spacing: $tracking-wide;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $color-primary;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s ease;
+  }
+
+  .item:hover & {
+    opacity: 1;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
 .caption {
   position: absolute;
   bottom: 0;
@@ -119,6 +142,7 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
   opacity: 0.75;
   transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 .itemName {

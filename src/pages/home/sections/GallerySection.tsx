@@ -94,19 +94,14 @@ export const GallerySection = () => {
     <section className={styles.section} id="gallery">
       <div className={styles.container}>
         <div className={styles.header}>
-          <div>
-            <h2 className={styles.heading}>GALLERY</h2>
-            <div className={styles.headingUnderline} />
-          </div>
-          <Link to="/gallery" className={styles.viewAllLink}>
-            View all
-          </Link>
+          <h2 className={styles.heading}>GALLERY</h2>
         </div>
 
         <div className={styles.grid}>
           {GALLERY_PREVIEW.map((item) => (
-            <div
+            <Link
               key={item.id}
+              to="/gallery"
               className={styles.item}
               style={
                 {
@@ -117,11 +112,12 @@ export const GallerySection = () => {
               }
             >
               <img src={item.src} alt={item.name} draggable={false} />
+              <span className={styles.viewLabel}>View Gallery</span>
               <div className={styles.caption}>
                 <div className={styles.itemName}>{item.name}</div>
                 <div className={styles.itemNum}>{item.num}</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

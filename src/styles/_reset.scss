@@ -1,4 +1,4 @@
-@use "tokens" as t;
+@use "@/styles/_tokens" as *;
 
 *,
 *::before,
@@ -16,12 +16,12 @@ html {
 }
 
 body {
-  font-family: t.$font-body;
-  font-size: t.$text-base;
-  font-weight: t.$weight-regular;
-  line-height: t.$leading-normal;
-  color: t.$color-on-surface;
-  background-color: t.$color-surface;
+  font-family: $font-body;
+  font-size: $text-base;
+  font-weight: $weight-regular;
+  line-height: $leading-normal;
+  color: $color-on-surface;
+  background-color: $color-surface;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

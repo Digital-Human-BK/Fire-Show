@@ -22,7 +22,7 @@ export const AboutSection = () => {
         <div className={styles.content}>
           <div className={styles.eyebrowRow}>
             <span className={styles.eyebrowLine} aria-hidden="true" />
-            <span className={styles.eyebrow}>My Fire</span>
+            <span className={styles.eyebrow}>About Me</span>
           </div>
 
           <h2 className={styles.heading}>

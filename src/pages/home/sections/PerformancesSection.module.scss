@@ -25,8 +25,7 @@
 }
 
 .eyebrow {
-  @include eyebrow;
-  font-family: $font-mono;
+  @include section-title;
 }
 
 .heading {

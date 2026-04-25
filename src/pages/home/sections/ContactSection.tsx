@@ -3,6 +3,7 @@ import Instagram from "@/assets/icons/instagram.svg?react";
 import Share from "@/assets/icons/share-2.svg?react";
 import TikTok from "@/assets/icons/tiktok.svg?react";
 import Youtube from "@/assets/icons/youtube.svg?react";
+import { FabButton } from "@/components/fab-button/FabButton";
 import styles from "./ContactSection.module.scss";
 
 export const ContactSection = () => {
@@ -77,9 +78,14 @@ export const ContactSection = () => {
         </div>
       </div>
 
-      <button className={styles.fab} aria-label="Share on social media">
-        <Share width={24} height={24} />
-      </button>
+      <div className={styles.footer}>
+        <span className={styles.copy}>
+          © Biser Karadzhov / {new Date().getFullYear()}
+        </span>
+        <FabButton aria-label="Share on social media">
+          <Share width={24} height={24} />
+        </FabButton>
+      </div>
     </section>
   );
 };
