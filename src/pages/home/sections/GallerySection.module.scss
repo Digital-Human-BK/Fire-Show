@@ -1,6 +1,6 @@
 .section {
   padding: $space-24 $space-8;
-  background-color: $color-surface-container-low;
+  background-color: $color-black;
 
   @media (min-width: $bp-md) {
     padding-left: $space-16;
@@ -16,14 +16,15 @@
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: $space-16;
+  align-items: flex-end;
+  margin-bottom: $space-8;
 }
 
 .heading {
   font-family: $font-heading;
   font-size: $text-4xl;
   font-weight: $weight-bold;
-  color: $color-on-surface;
+  color: #ffffff;
   letter-spacing: $tracking-tight;
   line-height: $leading-tight;
 
@@ -40,62 +41,96 @@
   border-radius: $radius-full;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $space-4;
+.viewAllLink {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  font-weight: $weight-semibold;
+  color: $color-on-surface-variant;
+  text-decoration: none;
+  letter-spacing: $tracking-wide;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
 
-  @media (min-width: $bp-md) {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    height: 800px;
+  &:hover {
+    color: $color-primary;
   }
 }
 
-.cell {
+// ── Grid ─────────────────────────────────────────────────────────
+// Mobile: 2-column auto grid with aspect-ratio items.
+// Desktop (lg+): explicit 4-col × 5-row placement, staggered heights
+// mimicking the draggable canvas gallery (small=330px, large=500px).
+//   grid-auto-rows: 160px + gap: 10px
+//   small (2 rows): 2×160 + 1×10 = 330px
+//   large (3 rows): 3×160 + 2×10 = 500px
+// Total height: 5×160 + 4×10 = 840px
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: $bp-lg) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 160px);
+  }
+}
+
+.item {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
+  background-color: #000000;
+  aspect-ratio: 3 / 4;
+
+  @media (min-width: $bp-lg) {
+    aspect-ratio: unset;
+    grid-column: var(--gc);
+    grid-row: var(--gr) / var(--ge);
+  }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(80%);
-    transition:
-      filter $transition-fast,
-      transform $transition-base;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 0.4s ease;
   }
 
   &:hover img {
     transform: scale(1.05);
-    filter: grayscale(0);
   }
 
-  &:hover .overlay {
+  &:hover .caption {
     opacity: 1;
   }
 }
 
-.overlay {
+.caption {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  opacity: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
+  opacity: 0.75;
   transition: opacity 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.cellHero {
-  aspect-ratio: 4 / 5;
+.itemName {
+  color: $color-white;
+  font-size: $text-xs;
+  font-weight: $weight-medium;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin-bottom: 2px;
+}
 
-  @media (min-width: $bp-md) {
-    grid-column: span 2;
-    grid-row: span 2;
-    aspect-ratio: unset;
-  }
+.itemNum {
+  font-family: $font-mono;
+  color: $color-primary;
+  font-size: $text-2xs;
+  font-weight: $weight-regular;
 }
 
 .cellSmall {

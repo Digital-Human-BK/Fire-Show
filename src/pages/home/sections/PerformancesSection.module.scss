@@ -2,7 +2,7 @@
 
 .section {
   padding: $space-12 0;
-  background-color: $color-surface-container-low;
+  background-color: $color-black;
 
   @media (min-width: $bp-md) {
     padding: $space-20 0;
@@ -26,6 +26,7 @@
 
 .eyebrow {
   @include eyebrow;
+  font-family: $font-mono;
 }
 
 .heading {
@@ -38,13 +39,14 @@
 }
 
 .swiperGap {
-  height: $space-8;
+  height: $space-4;
 }
 
 .priceDisclaimer {
   text-align: center;
   margin-top: $space-2;
-  font-size: $text-xs;
+  font-size: $text-sm;
+  font-family: $font-mono;
   color: $color-primary;
   padding-inline: $space-4;
 

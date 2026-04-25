@@ -217,8 +217,9 @@
 }
 
 .scrollText {
-  font-family: $font-body;
-  font-size: 0.625rem;
+  font-family: $font-mono;
+  font-weight: $weight-semibold;
+  font-size: $text-2xs;
   letter-spacing: 0.4em;
   color: $color-on-surface-variant;
   text-transform: uppercase;

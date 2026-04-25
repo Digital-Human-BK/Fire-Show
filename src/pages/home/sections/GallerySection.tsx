@@ -1,34 +1,102 @@
-import Maximize from "@/assets/icons/maximize.svg?react";
-import { cn } from "@/utils/styles";
 import { Link } from "react-router";
 import styles from "./GallerySection.module.scss";
 
-const galleryImages = [
+const IMAGE_URLS = [
+  "https://cdn.cosmos.so/0f164449-f65e-4584-9d62-a9b3e1f4a90a?format=jpeg",
+  "https://cdn.cosmos.so/74ccf6cc-7672-4deb-ba13-1727b7dc6146?format=jpeg",
+  "https://cdn.cosmos.so/2f49a117-05e7-4ae9-9e95-b9917f970adb?format=jpeg",
+  "https://cdn.cosmos.so/7b5340f5-b4dc-4c08-8495-c507fa81480b?format=jpeg",
+  "https://cdn.cosmos.so/f733585a-081e-48e7-a30e-e636446f2168?format=jpeg",
+  "https://cdn.cosmos.so/47caf8a0-f456-41c5-98ea-6d0476315731?format=jpeg",
+  "https://cdn.cosmos.so/f99f8445-6a19-4a9a-9de3-ac382acc1a3f?format=jpeg",
+];
+
+// Desktop grid: 4 cols × 5 rows (160px each, 10px gap → 840px total).
+// col/row/rowEnd use 1-based CSS grid lines.
+type PreviewItem = {
+  id: number;
+  src: string;
+  name: string;
+  num: string;
+  col: number;
+  row: number;
+  rowEnd: number;
+};
+
+const GALLERY_PREVIEW: PreviewItem[] = [
   {
-    id: "mountain",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuB1LQHAK_x-0ug_HeWius4ViQfo9_dUFwZB1QoTv1xLY0Leu-bd6q5g7XWtCggz-dB1WAg0NxLNStsWBldtJi3VPbrI-ADxQxzPNT4paLpcs8YKRqMgrw4DaYDeZnzS2v79Xq0PV4K9fna4cw2-ofNYS6oreux6jskxHgeZEk_qAh6uCghe-bZqd5SMAY4eRfqYtZ0Kt9d5JiJPd5kw8i-ILneb6vXjsQ1IAK7LqsPs09ZRGAxDPIDBBlMo4T1dct21a4Kn4rPXXLwP",
-    alt: "Dramatic wide landscape at night with a small fire performance figure silhouetted against a mountain range",
-    cellClass: "cellHero",
+    id: 0,
+    src: IMAGE_URLS[0],
+    name: "Chromatic Loopscape",
+    num: "#00001",
+    col: 1,
+    row: 1,
+    rowEnd: 3,
   },
   {
-    id: "tools",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDtPAdLGEdT2kVuCQp5mMi792D-u_MjlVKZZYFmAUW5Xh-eS7lA3C89UWe7IOJvQ3EVvGYNknX4Al80-fr6pQA7IppNKVLp7YsxRPpoUrP71Rz5Si7hUdb5sdtHVSOIWlvlnj3UWlh0ZpNiEz0xeWI3cWvHn-Oieda1YgNkmib68uxW75hw0e2NvP8g55L84HaNtl7lVShrudUEQms_vX2XDlKQm9gkFHdO25YJfHU1fsFzibLc9e6R0jcuayrPi5ziHv14uusV2J8Z",
-    alt: "Close up of specialized fire tools and props organized neatly on a dark surface",
-    cellClass: "cellSmall",
+    id: 1,
+    src: IMAGE_URLS[1],
+    name: "Solar Bloom",
+    num: "#00002",
+    col: 2,
+    row: 1,
+    rowEnd: 4,
   },
   {
-    id: "face",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDmGFxpwQYjnZrrDci7AG-AACOam6gVNaJEFlfMyBYQGPYLFX6qcdZppcNPmkRbh6XkCyFu5EzQ07kkr7AuVW-GCmhZPwn5CsJ_i0Fab_jyQoR1vK1b6KztFU2napGY4JU-OYNB9TNZGUZx8i1HZpY4nWKstVUU9EsIKFrWwIFUg2YnUXAghEVwC-w3epXmdmYuAaZyolFf2Hb1edNIMXZwtz2Ap-acD4HQreLpFdn3WeLSCQ9HI9qG1vJOfskQXJ3VAWDsnQ0_uTmv",
-    alt: "Intense close-up of a fire dancer's face illuminated by a nearby torch during a show",
-    cellClass: "cellSmall",
+    id: 2,
+    src: IMAGE_URLS[2],
+    name: "Neon Handscape",
+    num: "#00003",
+    col: 3,
+    row: 1,
+    rowEnd: 3,
   },
   {
-    id: "stage",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAOWiWxnxTkKYPhyWATeHP8RwSItDya2vXCPXpMUIP_1V_seuK1o9vp1AtjelFR7OuZfOXwSzJDs1W8-YmBlG3CqV_HYF7qZij0pkt3ZWTwi0nHS_Uu8_-fTRX-i38hoqdraBqDspnj_C6AxeaevYqFeMstxZNatrqHTTvxSH1VEfwKHQ6PPFSfPfRic5PQ1ZF0o5SB5DZ378X4vtvv3jEj7Jl8UezN_z9ezrgYfabZfXYBGx0e_AEYjvOEv3AUed7iAaLiklRS0ZlS",
-    alt: "Wide shot of multiple fire performers synchronized on a large stage with red smoke and bright lighting",
-    cellClass: "cellWide",
+    id: 3,
+    src: IMAGE_URLS[3],
+    name: "Echo Discs",
+    num: "#00004",
+    col: 4,
+    row: 1,
+    rowEnd: 4,
   },
-] as const;
+  {
+    id: 4,
+    src: IMAGE_URLS[4],
+    name: "Void Gaze",
+    num: "#00005",
+    col: 1,
+    row: 3,
+    rowEnd: 6,
+  },
+  {
+    id: 5,
+    src: IMAGE_URLS[5],
+    name: "Gravity Sync",
+    num: "#00006",
+    col: 2,
+    row: 4,
+    rowEnd: 6,
+  },
+  {
+    id: 6,
+    src: IMAGE_URLS[6],
+    name: "Heat Core",
+    num: "#00007",
+    col: 3,
+    row: 3,
+    rowEnd: 6,
+  },
+  {
+    id: 7,
+    src: IMAGE_URLS[0],
+    name: "Fractal Mirage",
+    num: "#00008",
+    col: 4,
+    row: 4,
+    rowEnd: 6,
+  },
+];
 
 export const GallerySection = () => {
   return (
@@ -39,23 +107,28 @@ export const GallerySection = () => {
             <h2 className={styles.heading}>GALLERY</h2>
             <div className={styles.headingUnderline} />
           </div>
-          <Link to="/" className={styles.viewAllLink}>
+          <Link to="/gallery" className={styles.viewAllLink}>
             View all
           </Link>
         </div>
 
         <div className={styles.grid}>
-          {galleryImages.map((img) => (
+          {GALLERY_PREVIEW.map((item) => (
             <div
-              key={img.id}
-              className={cn(
-                styles.cell,
-                styles[img.cellClass as keyof typeof styles],
-              )}
+              key={item.id}
+              className={styles.item}
+              style={
+                {
+                  "--gc": item.col,
+                  "--gr": item.row,
+                  "--ge": item.rowEnd,
+                } as React.CSSProperties
+              }
             >
-              <img src={img.src} alt={img.alt} />
-              <div className={styles.overlay}>
-                <Maximize width={40} height={40} />
+              <img src={item.src} alt={item.name} draggable={false} />
+              <div className={styles.caption}>
+                <div className={styles.itemName}>{item.name}</div>
+                <div className={styles.itemNum}>{item.num}</div>
               </div>
             </div>
           ))}

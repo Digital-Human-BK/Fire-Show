@@ -1,4 +1,5 @@
 import GalleryHorizontal from "@/assets/icons/gallery-horizontal.svg?react";
+import { MinimalNavbar } from "@/components/minimal-navbar/MinimalNavbar";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { useEffect, useRef } from "react";
@@ -677,28 +678,31 @@ export const Gallery = () => {
   }, []);
 
   return (
-    <main className={styles.page}>
-      <div className={styles.container} ref={containerRef}>
-        <div className={styles.canvas} ref={canvasRef} />
-        <div className={styles.galleryOverlay} ref={overlayRef} />
-      </div>
-      <div className={styles.projectTitle}>
-        <p ref={projectTitleRef} />
-      </div>
-      <div className={styles.dragHint} ref={dragHintRef} aria-hidden="true">
-        <GalleryHorizontal className={styles.dragHintIcon} />
-        <span className={styles.dragHintText}>
-          <span className={styles.dragHintMobile}>Swipe to view more</span>
-          <span className={styles.dragHintDesktop}>
-            Drag with the mouse to see more
+    <>
+      <MinimalNavbar />
+      <main className={styles.page}>
+        <div className={styles.container} ref={containerRef}>
+          <div className={styles.canvas} ref={canvasRef} />
+          <div className={styles.galleryOverlay} ref={overlayRef} />
+        </div>
+        <div className={styles.projectTitle}>
+          <p ref={projectTitleRef} />
+        </div>
+        <div className={styles.dragHint} ref={dragHintRef} aria-hidden="true">
+          <GalleryHorizontal className={styles.dragHintIcon} />
+          <span className={styles.dragHintText}>
+            <span className={styles.dragHintMobile}>Swipe to view more</span>
+            <span className={styles.dragHintDesktop}>
+              Drag with the mouse to see more
+            </span>
           </span>
-        </span>
-      </div>
-      <div className={styles.pageVignetteContainer} aria-hidden="true">
-        <div className={styles.pageVignette} />
-        <div className={styles.pageVignetteStrong} />
-        <div className={styles.pageVignetteExtreme} />
-      </div>
-    </main>
+        </div>
+        <div className={styles.pageVignetteContainer} aria-hidden="true">
+          <div className={styles.pageVignette} />
+          <div className={styles.pageVignetteStrong} />
+          <div className={styles.pageVignetteExtreme} />
+        </div>
+      </main>
+    </>
   );
 };

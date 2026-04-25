@@ -26,7 +26,6 @@
   width: 100%;
   aspect-ratio: 3 / 4;
   position: relative;
-  border-radius: $radius-lg;
   overflow: clip;
   box-shadow: 0 24px 64px rgba($color-primary, 0.1);
   flex-shrink: 0;
@@ -39,7 +38,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: $radius-lg;
   }
 }
 

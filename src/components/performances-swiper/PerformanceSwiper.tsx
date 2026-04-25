@@ -29,8 +29,8 @@ export const PerformanceSwiper = ({
       autoplay={{ delay }}
       speed={speed}
       loop
-      spaceBetween={32}
-      slidesPerView={1.3}
+      spaceBetween={16}
+      slidesPerView={1}
       breakpoints={{
         768: { slidesPerView: 2.3 },
         1440: { slidesPerView: 3.3 },
@@ -49,7 +49,7 @@ export const PerformanceSwiper = ({
               <div className={styles.cardInfo}>
                 <div className={styles.cardInfoRow}>
                   <div className={styles.cardInfoLeft}>
-                    <h3 className={styles.cardTitle}>{service.title}</h3>
+                    <p className={styles.cardTitle}>{service.title}</p>
                     <div className={styles.descriptionWrapper}>
                       <p className={styles.cardDescription}>
                         {service.description}

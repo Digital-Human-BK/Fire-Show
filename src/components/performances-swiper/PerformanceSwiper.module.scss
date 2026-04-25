@@ -20,7 +20,6 @@
 
 .card {
   flex-shrink: 0;
-  border-radius: $radius-sm;
   overflow: hidden;
   background-color: $color-surface-container;
   cursor: pointer;
@@ -78,13 +77,9 @@
 }
 
 .descriptionWrapper {
-  display: none;
-
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 600ms;
-  }
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 600ms;
 }
 
 .card:hover .descriptionWrapper {
@@ -92,41 +87,32 @@
 }
 
 .cardTitle {
-  font-family: $font-heading;
-  font-size: $text-xl;
-  font-weight: $weight-bold;
+  font-size: $text-sm;
+  font-weight: $weight-medium;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   color: $color-on-surface;
   line-height: 1;
 
   @media (min-width: 768px) {
-    font-size: $text-2xl;
+    font-size: $text-base;
   }
 }
 
 .cardDescription {
   overflow: hidden;
   color: $color-on-surface-variant;
-  font-size: $text-sm;
-  font-family: $font-body;
+  font-size: $text-xs;
   opacity: 0;
   transition: opacity 400ms 200ms ease-in;
+
+  @media (min-width: 768px) {
+    font-size: $text-sm;
+  }
 }
 
 .card:hover .cardDescription {
   opacity: 1;
-}
-
-.cardPrice {
-  font-family: $font-body;
-  font-size: $text-base;
-  font-weight: $weight-bold;
-  line-height: 1;
-  color: $color-primary;
-  white-space: nowrap;
-
-  @media (min-width: 768px) {
-    font-size: $text-xl;
-  }
 }
 
 .priceWrapper {
@@ -135,6 +121,18 @@
   align-items: flex-end;
   flex-shrink: 0;
   gap: 0;
+}
+
+.cardPrice {
+  font-size: $text-base;
+  font-weight: $weight-bold;
+  line-height: 1;
+  color: $color-primary;
+  white-space: nowrap;
+
+  @media (min-width: 768px) {
+    font-size: $text-lg;
+  }
 }
 
 .cardPriceSubtitle {
