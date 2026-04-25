@@ -108,6 +108,8 @@ export const GallerySection = () => {
                   "--gc": item.col,
                   "--gr": item.row,
                   "--ge": item.rowEnd,
+                  "--range-start": `${(item.row - 1) * 4}%`,
+                  "--range-end": `${(item.row - 1) * 4 + 15}%`,
                 } as React.CSSProperties
               }
             >

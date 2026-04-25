@@ -65,6 +65,8 @@
   text-decoration: none;
   display: block;
 
+  @include scroll-reveal("var(--range-start, 0%)", "var(--range-end, 30%)");
+
   @media (min-width: $bp-lg) {
     aspect-ratio: unset;
     grid-column: var(--gc);
