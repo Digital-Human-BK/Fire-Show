@@ -131,6 +131,10 @@
     padding: 0;
   }
 
+  :global(.yarl__thumbnails_thumbnail_active) {
+    border: 1px solid rgba($color-primary, 0.2);
+  }
+
   :global(.yarl__slide_title) {
     font-family: $font-heading;
     color: $color-primary;
