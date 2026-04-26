@@ -9,7 +9,7 @@
   justify-content: center;
   background-color: $color-black;
   text-align: center;
-  padding: $space-24 $space-8 $space-8;
+  padding: $space-8;
   overflow: hidden;
 }
 
@@ -192,8 +192,11 @@
 }
 
 .footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  margin-top: auto;
+  padding: $space-4 $space-6;
+
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -202,5 +205,9 @@
     font-family: $font-mono;
     font-size: $text-sm;
     color: $color-on-surface-variant;
+  }
+
+  @media (min-width: $bp-md) {
+    padding: $space-8;
   }
 }

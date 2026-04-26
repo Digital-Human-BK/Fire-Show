@@ -99,9 +99,8 @@ export const GallerySection = () => {
 
         <div className={styles.grid}>
           {GALLERY_PREVIEW.map((item) => (
-            <Link
+            <div
               key={item.id}
-              to="/gallery"
               className={styles.item}
               style={
                 {
@@ -114,13 +113,17 @@ export const GallerySection = () => {
               }
             >
               <img src={item.src} alt={item.name} draggable={false} />
-              <span className={styles.viewLabel}>View Gallery</span>
               <div className={styles.caption}>
                 <div className={styles.itemName}>{item.name}</div>
                 <div className={styles.itemNum}>{item.num}</div>
               </div>
-            </Link>
+            </div>
           ))}
+        </div>
+        <div className={styles.galleryFooter}>
+          <Link to="/gallery" className={styles.galleryLink}>
+            View Gallery
+          </Link>
         </div>
       </div>
     </section>

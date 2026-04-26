@@ -39,9 +39,9 @@ export const HeroSection = () => {
       <div className={styles.content}>
         <div className={styles.heroLeft}>
           <h1 className={styles.title}>
-            THE <span className={styles.gradientText}>CONTROLLED</span>
+            ATANAS <span className={styles.gradientText}>ZAHARIEV</span>
             <br />
-            INFERNO
+            FIRE SHOW
           </h1>
           <p className={styles.subtitle}>
             Cinematic fire performance art for high-end events, cinematic

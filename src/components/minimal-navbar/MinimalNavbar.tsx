@@ -10,7 +10,7 @@ export const MinimalNavbar = () => {
         ZAHARIEV
       </a>
       <div className={styles.links}>
-        <Link to="/">BACK TO HOME</Link>
+        <Link to="/">HOME</Link>
       </div>
       <a href="tel:+359888555666" aria-label="Call +359 888 555 666">
         <AnimatedButton size="sm">Book Show</AnimatedButton>
