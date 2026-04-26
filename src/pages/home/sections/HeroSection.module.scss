@@ -11,16 +11,6 @@
   }
 }
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
 .section {
   position: relative;
   height: 100vh;
@@ -227,7 +217,7 @@
 
 .scrollArrow {
   color: $color-primary;
-  animation: bounce 1s ease-in-out infinite;
+  @include bounce-animation;
 }
 
 .gradientText {
