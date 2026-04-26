@@ -15,12 +15,14 @@ type PerformanceSwiperProps = {
   }[];
   speed: number;
   delay?: number;
+  onCardClick?: (index: number) => void;
 };
 
 export const PerformanceSwiper = ({
   data,
   speed,
   delay = 0,
+  onCardClick,
 }: PerformanceSwiperProps) => {
   return (
     <Swiper
@@ -36,9 +38,9 @@ export const PerformanceSwiper = ({
         1440: { slidesPerView: 3.3 },
       }}
     >
-      {data.map((service) => (
+      {data.map((service, index) => (
         <SwiperSlide key={service.title}>
-          <div className={styles.card}>
+          <div className={styles.card} onClick={() => onCardClick?.(index)}>
             <div className={styles.cardMedia}>
               <img
                 src={service.image}

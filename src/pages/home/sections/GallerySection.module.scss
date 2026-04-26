@@ -123,25 +123,3 @@
   font-size: $text-2xs;
   font-weight: $weight-regular;
 }
-
-// ── Lightbox overrides ────────────────────────────────────────────
-.lightbox {
-  :global(.yarl__thumbnails_thumbnail) {
-    border: none;
-    padding: 0;
-  }
-
-  :global(.yarl__thumbnails_thumbnail_active) {
-    border: 1px solid rgba($color-primary, 0.2);
-  }
-
-  :global(.yarl__slide_title) {
-    font-family: $font-heading;
-    color: $color-primary;
-  }
-
-  :global(.yarl__slide_description) {
-    font-family: $font-mono;
-    color: $color-on-surface-variant;
-  }
-}

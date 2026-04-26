@@ -1,6 +1,11 @@
 import styles from "./PerformancesSection.module.scss";
 
+import {
+  AppLightbox,
+  type AppLightboxSlide,
+} from "@/components/app-lightbox/AppLightbox";
 import { PerformanceSwiper } from "@/components/performances-swiper/PerformanceSwiper";
+import { useState } from "react";
 import "swiper/css";
 
 type ServiceCard = {
@@ -75,7 +80,30 @@ const services: ServiceCard[] = [
   },
 ];
 
+const reversedServices = [...services].reverse();
+
+const toSlides = (data: ServiceCard[]): AppLightboxSlide[] =>
+  data.map((s) => ({
+    src: s.image,
+    alt: s.alt,
+    title: s.title,
+    description: s.description,
+  }));
+
+const forwardSlides = toSlides(services);
+const reversedSlides = toSlides(reversedServices);
+
 export const PerformancesSection = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [lightboxSlides, setLightboxSlides] = useState<AppLightboxSlide[]>([]);
+
+  const openLightbox = (slides: AppLightboxSlide[], index: number) => {
+    setLightboxSlides(slides);
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
   return (
     <section className={styles.section} id="performances">
       <div className={styles.header}>
@@ -83,12 +111,27 @@ export const PerformancesSection = () => {
         <h2 className={styles.heading}>Fire & Light</h2>
       </div>
 
-      <PerformanceSwiper data={services} speed={11000} />
+      <PerformanceSwiper
+        data={services}
+        speed={11000}
+        onCardClick={(i) => openLightbox(forwardSlides, i)}
+      />
       <div className={styles.swiperGap} />
-      <PerformanceSwiper data={services.reverse()} speed={7500} />
+      <PerformanceSwiper
+        data={reversedServices}
+        speed={7500}
+        onCardClick={(i) => openLightbox(reversedSlides, i)}
+      />
       <p className={styles.priceDisclaimer}>
         *Prices may vary depending on the conditions and location.
       </p>
+
+      <AppLightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={lightboxIndex}
+        slides={lightboxSlides}
+      />
     </section>
   );
 };
