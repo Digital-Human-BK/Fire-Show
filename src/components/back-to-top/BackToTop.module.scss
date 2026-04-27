@@ -1,0 +1,45 @@
+@use "@/styles/_mixins" as *;
+
+.backToTop {
+  position: fixed;
+  bottom: $space-8;
+  left: $space-8;
+  z-index: $z-sticky;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-full;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-primary;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: $shadow-glow-accent-sm;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition:
+    opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    bottom 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    color $transition-base,
+    border-color $transition-base;
+  @include bounce-animation(1.2s);
+
+  &:hover {
+    color: $color-accent;
+    border-color: rgba(255, 144, 109, 0.4);
+  }
+}
+
+.backToTopAtBottom {
+  bottom: $space-16;
+}
+
+.backToTopVisible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}

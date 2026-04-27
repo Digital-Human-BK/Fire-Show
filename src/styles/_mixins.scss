@@ -144,3 +144,17 @@
   -webkit-text-fill-color: $fill-color;
   background-clip: text;
 }
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@mixin bounce-animation($duration: 1s) {
+  animation: bounce $duration ease-in-out infinite;
+}
