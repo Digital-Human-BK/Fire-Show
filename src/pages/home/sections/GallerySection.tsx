@@ -1,5 +1,6 @@
+import { AppLightbox } from "@/components/app-lightbox/AppLightbox";
 import { galleryImages } from "@/utils/constants";
-import { Link } from "react-router";
+import { useState } from "react";
 import styles from "./GallerySection.module.scss";
 
 // Desktop grid: 4 cols × 5 rows (160px each, 10px gap → 840px total).
@@ -89,7 +90,22 @@ const GALLERY_PREVIEW: PreviewItem[] = [
   },
 ];
 
+const LIGHTBOX_SLIDES = GALLERY_PREVIEW.map((item) => ({
+  src: item.src,
+  alt: item.name,
+  title: item.name,
+  description: item.num,
+}));
+
 export const GallerySection = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
   return (
     <section className={styles.section} id="gallery">
       <div className={styles.container}>
@@ -98,10 +114,14 @@ export const GallerySection = () => {
         </div>
 
         <div className={styles.grid}>
-          {GALLERY_PREVIEW.map((item) => (
+          {GALLERY_PREVIEW.map((item, index) => (
             <div
               key={item.id}
               className={styles.item}
+              role="button"
+              tabIndex={0}
+              onClick={() => openLightbox(index)}
+              onKeyDown={(e) => e.key === "Enter" && openLightbox(index)}
               style={
                 {
                   "--gc": item.col,
@@ -120,12 +140,14 @@ export const GallerySection = () => {
             </div>
           ))}
         </div>
-        <div className={styles.galleryFooter}>
-          <Link to="/gallery" className={styles.galleryLink}>
-            View Gallery
-          </Link>
-        </div>
       </div>
+
+      <AppLightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={lightboxIndex}
+        slides={LIGHTBOX_SLIDES}
+      />
     </section>
   );
 };

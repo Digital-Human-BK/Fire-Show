@@ -1,6 +1,7 @@
 import { cn } from "@/utils/styles";
 import { useEffect, useState } from "react";
 import { AnimatedButton } from "../animated-button/AnimatedButton";
+import { BackToTop } from "../back-to-top/BackToTop";
 import styles from "./Navbar.module.scss";
 
 const navSections = [
@@ -15,6 +16,7 @@ const allSections = ["hero", ...navSections.map((section) => section.id)];
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isScrollingToSection, setIsScrollingToSection] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
   const [activeSection, setActiveSection] = useState(
     window.location.hash || "#hero",
   );
@@ -22,6 +24,13 @@ export const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Check if we're at the bottom of the page
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const isNearBottom = scrollTop + windowHeight >= documentHeight - 100; // 100px threshold
+      setIsAtBottom(isNearBottom);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -78,27 +87,36 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className={cn(styles.nav, isScrolled && styles.scrolled)}>
-      <a href="#hero" className={styles.logo} onClick={handleSectionClick}>
-        ZAHARIEV
-      </a>
-      <div className={styles.links}>
-        {navSections.map((section) => (
-          <a
-            key={section.id}
-            href={`#${section.id}`}
-            className={cn(activeSection === `#${section.id}` && styles.active)}
-            onClick={handleSectionClick}
-          >
-            {section.label}
-          </a>
-        ))}
-      </div>
-      <a href="tel:+359888555666" aria-label="Call +359 888 555 666">
-        <AnimatedButton size={isScrolled ? "sm" : "md"}>
-          Book Show
-        </AnimatedButton>
-      </a>
-    </nav>
+    <>
+      <nav className={cn(styles.nav, isScrolled && styles.scrolled)}>
+        <a href="#hero" className={styles.logo} onClick={handleSectionClick}>
+          ZAHARIEV
+        </a>
+        <div className={styles.links}>
+          {navSections.map((section) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className={cn(
+                activeSection === `#${section.id}` && styles.active,
+              )}
+              onClick={handleSectionClick}
+            >
+              {section.label}
+            </a>
+          ))}
+        </div>
+        <a href="tel:+359888555666" aria-label="Call +359 888 555 666">
+          <AnimatedButton size={isScrolled ? "sm" : "md"}>
+            Book Show
+          </AnimatedButton>
+        </a>
+      </nav>
+      <BackToTop
+        isVisible={activeSection !== "#hero"}
+        isAtBottom={isAtBottom}
+        onClick={handleSectionClick}
+      />
+    </>
   );
 };
